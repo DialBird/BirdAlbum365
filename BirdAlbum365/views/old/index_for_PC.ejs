@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Z version</title>
+<link rel="stylesheet" href="/css/style_for_PC.css" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,900italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/selectordie.css" type="text/css">
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src=" https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="/js/lib/plugin/jquery.qrcode.min.js"></script>
+<script src="/js/lib/three/three.min.js"></script>
+<script src="/js/lib/three/OrbitControls.js"></script>
+<script src="/js/lib/three/tween.min.js"></script>
+<script src="/js/lib/three/ColladaLoader.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+       <button id="a">a</button>
+       <button id="b">b</button>
+       <button id="c">c</button>
+       <button id="d">d</button>
+       <button id="sound">sound</button>
+       <button id="loop">loop</button>
+<!--       <button id="command_btn">record</button>-->
+        <div id="qrcode_zone">
+            <div id="qrcode">
+               <h1 style="text-align:center">QRコードをスマホで読み取ろう</h1>
+           </div>
+        </div>
+        <h1 id="title">Bird Album</h1>
+        <div id="canvas"></div>
+        <div id="canvas_cover">
+           <img src="/img/delete.png" width="50" id="delete_icon">
+            <p class="canvas_cover_text">Command Startを押して命令してみよう！</p>
+            <p class="canvas_cover_text" style="font-size:40px;color:skyblue;">「ばくはつ」</p>
+            <p class="canvas_cover_text" style="font-size:40px;color:skyblue;">「かいてん」</p>
+            <p class="canvas_cover_text" style="font-size:40px;color:skyblue;">「いろかえ」</p>
+        </div>
+        <div id="qrcode2"></div>
+        
+        <!--    鳥の説明画像    -->
+        <div class="bird_introduction_window">
+            <h2 id="birdName"></h2>
+            <div id="birdImageBlock">
+<!--                <img src="" id="birdImage" width="450" height="300">-->
+            </div>
+            <button id="back_to_select_btn">OK</button>
+        </div>
+        
+        <!--    roomIDの取得    -->
+        <input type="hidden" value="<%= roomID%>" id="roomID">
+        
+        <!--    このデバイス名を取得する場所    -->
+        <input type="hidden" value="PC" id="thisDevice">
+        
+    </div><!--wrapper-->
+    
+<script src="/js/all.min.js"></script>
+</body>
+</html>

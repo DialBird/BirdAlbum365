@@ -1,0 +1,47 @@
+
+
+//回転するアニメーション（ギアに付ける）
+.js-rotate{
+    animation: RotateToLeft 40s linear infinite;
+}
+@keyframes RotateToLeft{
+    0%{transform: rotate(0deg)}
+    100%{transform: rotate(-360deg)}
+}
+
+//鳥の説明文が現れるアニメーション
+.js-showBirdNav{
+    animation: ShowBirdNav 1s linear forwards;
+}
+@keyframes ShowBirdNav{
+    0%{opacity:0}
+    100%{opacity:1}
+}
+
+//鳥の説明文が消えるアニメーション
+.js-hiddenBirdNav{
+    animation: HiddenBirdNav 1s linear forwards;
+}
+@keyframes HiddenBirdNav{
+    0%{opacity:1}
+    100%{opacity:0}
+}
+
+.js-slideInFromLeft{
+    animation: SlideInFromLeft 0.3s cubic-bezier(.19, .75, .45, .99) forwards;
+}
+@keyframes SlideInFromLeft{
+    0%{transform:translateX(-100%);}
+    100%{transform:translateX(0%);}
+}
+.js-slideOutToLeft{
+    animation: SlideOutToLeft 0.3s cubic-bezier(.46, .03, .91, .48) forwards;
+}
+@keyframes SlideOutToLeft{
+    0%{transform:translateX(0%);}
+    100%{transform:translateX(-100%);}
+}
+
+
+
+

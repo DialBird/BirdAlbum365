@@ -1,0 +1,39 @@
+
+//メインカラー
+$mainGreen: #81C371;
+$mainPink: #A8357F;
+$mainBlack: #494645;
+
+
+//font指定
+@font-face {
+    font-family: 'ほのか丸ゴシック';
+    src: url('../../../fonts/honoka.ttf');
+}
+
+
+//テキスト指定
+p{
+    font-family: 'ほのか丸ゴシック';
+    font-size: 20px;
+    line-height: 2rem;
+    color:$mainBlack;
+}
+
+h2{
+    font-family: Futura,Trebuchet MS,Arial,sans-serif;
+    font-size: 60px;
+    line-height:60px;
+    color: $mainPink;
+}
+
+h3{
+    font-family: 'ほのか丸ゴシック';
+    font-size:30px;
+    line-height: 2rem;
+    color:$mainBlack;
+}
+
+html,body{
+    min-width: 1280px;
+}

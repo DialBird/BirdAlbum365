@@ -1,0 +1,45 @@
+
+
+.clearfix::after{
+    content: '';
+    clear:both;
+}
+
+.mb25{
+    margin-bottom: 25px;
+}
+.mb50{
+    margin-bottom: 50px;
+}
+.mb100{
+    margin-bottom: 200px;
+}
+
+.mb3p{
+    margin-bottom:3%;
+}
+
+.js-disappear{
+    display:none;
+}
+
+.js-show{
+    opacity:1;
+    visibility: visible;
+}
+
+.js-hide{
+    opacity:0;
+    visibility: hidden;
+}
+
+.js-slideInFromOutside{
+    transform: translate(0,0);
+}
+
+
+
+
+
+
+

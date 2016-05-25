@@ -1,0 +1,301 @@
+
+
+{
+    "ajisashi": {
+        "JPName": "アジサシ", "type": "旅鳥"
+    },
+    "daisyakusigi": {
+        "JPName": "ダイシャクシギ", "type": "旅鳥"
+    },
+    "ezobitaki": {
+        "JPName": "エゾビタキ", "type": "旅鳥"
+    },
+    "hourokushigi": {
+        "JPName": "ホウロクシギ", "type": "旅鳥"
+    },
+    "koobashigi": {
+        "JPName": "コオバシギ", "type": "旅鳥"
+    },
+    "kuroharaajisasi": {
+        "JPName": "クロハラアジサシ", "type": "旅鳥"
+    },
+    "kyoujosigi": {
+        "JPName": "キョウジョシギ", "type": "旅鳥"
+    },
+    "miyubishigi": {
+        "JPName": "ミユビシギ", "type": "旅鳥"
+    },
+    "ojirotounen": {
+        "JPName": "オジロトウネン", "type": "旅鳥"
+    },
+    "oohashishigi": {
+        "JPName": "オオハシシギ", "type": "旅鳥"
+    },
+    "oomedaitidori": {
+        "JPName": "オオメダイチドリ", "type": "旅鳥"
+    },
+    "tashigi": {
+        "JPName": "タシギ", "type": "旅鳥"
+    },
+    "akasyoubin": {
+        "JPName": "アカショウビン", "type": "夏鳥"
+    },
+    "chigohayabusa": {
+        "JPName": "チゴハヤブサ", "type": "夏鳥"
+    },
+    "daisagi": {
+        "JPName": "ダイサギ", "type": "夏鳥"
+    },
+    "hachikuma": {
+        "JPName": "ハチクマ", "type": "夏鳥"
+    },
+    "iwatsubame": {
+        "JPName": "イワツバメ", "type": "夏鳥"
+    },
+    "kakkou": {
+        "JPName": "カッコウ", "type": "夏鳥"
+    },
+    "kibitaki": {
+        "JPName": "キビタキ", "type": "夏鳥"
+    },
+    "kisekirei": {
+        "JPName": "キセキレイ", "type": "夏鳥"
+    },
+    "koajisashi": {
+        "JPName": "コアジサシ", "type": "夏鳥"
+    },
+    "kochidori": {
+        "JPName": "コチドリ", "type": "夏鳥"
+    },
+    "komukudori": {
+        "JPName": "コムクドリ", "type": "夏鳥"
+    },
+    "kosamebitaki": {
+        "JPName": "コサメビタキ", "type": "夏鳥"
+    },
+    "nobitaki": {
+        "JPName": "ノビタキ", "type": "夏鳥"
+    },
+    "nogoma": {
+        "JPName": "ノゴマ", "type": "夏鳥"
+    },
+    "ooruri": {
+        "JPName": "オオルリ", "type": "夏鳥"
+    },
+    "ooyoshikiri": {
+        "JPName": "オオヨシキリ", "type": "夏鳥"
+    },
+    "sankoutyou": {
+        "JPName": "サンコウチョウ", "type": "夏鳥"
+    },
+    "sashiba": {
+        "JPName": "サシバ", "type": "夏鳥"
+    },
+    "tsubame": {
+        "JPName": "ツバメ", "type": "夏鳥"
+    },
+    "umineko": {
+        "JPName": "ウミネコ", "type": "夏鳥"
+    },
+    "akagera": {
+        "JPName": "アカゲラ", "type": "留鳥"
+    },
+    "aogera": {
+        "JPName": "アオゲラ", "type": "留鳥"
+    },
+    "aoji": {
+        "JPName": "アオジ", "type": "留鳥"
+    },
+    "aosagi": {
+        "JPName": "アオサギ", "type": "留鳥"
+    },
+    "ban": {
+        "JPName": "バン", "type": "留鳥"
+    },
+    "dobato": {
+        "JPName": "ドバト", "type": "留鳥"
+    },
+    "enaga": {
+        "JPName": "エナガ", "type": "留鳥"
+    },
+    "goisagi": {
+        "JPName": "ゴイサギ", "type": "留鳥"
+    },
+    "gojuukara": {
+        "JPName": "ゴジュウカラ", "type": "留鳥"
+    },
+    "hakusekirei": {
+        "JPName": "ハクセキレイ", "type": "留鳥"
+    },
+    "hashibosogarasu": {
+        "JPName": "ハシボソガラス", "type": "留鳥"
+    },
+    "hashibutogarasu": {
+        "JPName": "ハシブトガラス", "type": "留鳥"
+    },
+    "hayabusa": {
+        "JPName": "ハヤブサ", "type": "留鳥"
+    },
+    "hibari": {
+        "JPName": "ヒバリ", "type": "留鳥"
+    },
+    "hiyodori": {
+        "JPName": "ヒヨドリ", "type": "留鳥"
+    },
+    "hoojiro": {
+        "JPName": "ホオジロ", "type": "留鳥"
+    },
+    "isohiyodori": {
+        "JPName": "イソヒヨドリ", "type": "留鳥"
+    },
+    "isoshigi": {
+        "JPName": "イソシギ", "type": "留鳥"
+    },
+    "kaitsuburi": {
+        "JPName": "カイツブリ", "type": "留鳥"
+    },
+    "kakesu": {
+        "JPName": "カケス", "type": "留鳥"
+    },
+    "karugamo": {
+        "JPName": "カルガモ", "type": "留鳥"
+    },
+    "kasasagi": {
+        "JPName": "カササギ", "type": "留鳥"
+    },
+    "kawarahiwa": {
+        "JPName": "カワラヒワ", "type": "留鳥"
+    },
+    "kawasemi": {
+        "JPName": "カワセミ", "type": "留鳥"
+    },
+    "kawau": {
+        "JPName": "カワウ", "type": "留鳥"
+    },
+    "kiji": {
+        "JPName": "キジ", "type": "留鳥"
+    },
+    "kijibato": {
+        "JPName": "キジバト", "type": "留鳥"
+    },
+    "kikuitadaki": {
+        "JPName": "キクイタダキ", "type": "留鳥"
+    },
+    "kogera": {
+        "JPName": "コゲラ", "type": "留鳥"
+    },
+    "kojukei": {
+        "JPName": "コジュケイ", "type": "留鳥"
+    },
+    "kosagi": {
+        "JPName": "コサギ", "type": "留鳥"
+    },
+    "mejiro": {
+        "JPName": "メジロ", "type": "留鳥"
+    },
+    "misosazai": {
+        "JPName": "ミソサザイ", "type": "留鳥"
+    },
+    "mozu": {
+        "JPName": "モズ", "type": "留鳥"
+    },
+    "mukudori": {
+        "JPName": "ムクドリ", "type": "留鳥"
+    },
+    "ooban": {
+        "JPName": "オオバン", "type": "留鳥"
+    },
+    "ootaka": {
+        "JPName": "オオタカ", "type": "留鳥"
+    },
+    "ruribitaki": {
+        "JPName": "ルリビタキ", "type": "留鳥"
+    },
+    "segurosekirei": {
+        "JPName": "セグロセキレイ", "type": "留鳥"
+    },
+    "shijuukara": {
+        "JPName": "シジュウカラ", "type": "留鳥"
+    },
+    "sirotidori": {
+        "JPName": "シロチドリ", "type": "留鳥"
+    },
+    "suzume": {
+        "JPName": "スズメ", "type": "留鳥"
+    },
+    "tonbi": {
+        "JPName": "トンビ", "type": "留鳥"
+    },
+    "tsumi": {
+        "JPName": "ツミ", "type": "留鳥"
+    },
+    "uguisu": {
+        "JPName": "ウグイス", "type": "留鳥"
+    },
+    "uso": {
+        "JPName": "ウソ", "type": "留鳥"
+    },
+    "yamagara": {
+        "JPName": "ヤマガラ", "type": "留鳥"
+    },
+    "hashibirogamo": {
+        "JPName": "ハシビロガモ", "type": "冬鳥"
+    },
+    "hidorigamo": {
+        "JPName": "ヒドリガモ", "type": "冬鳥"
+    },
+    "hishikui": {
+        "JPName": "ヒシクイ", "type": "冬鳥"
+    },
+    "hoojirogamo": {
+        "JPName": "ホオジロガモ", "type": "冬鳥"
+    },
+    "joubitaki": {
+        "JPName": "ジョウビタキ", "type": "冬鳥"
+    },
+    "kashiradaka": {
+        "JPName": "カシラダカ", "type": "冬鳥"
+    },
+    "kinkurohajiro": {
+        "JPName": "キンクロハジロ", "type": "冬鳥"
+    },
+    "kogamo": {
+        "JPName": "コガモ", "type": "冬鳥"
+    },
+    "kohakutyou": {
+        "JPName": "コハクチョウ", "type": "冬鳥"
+    },
+    "kuroji": {
+        "JPName": "クロジ", "type": "冬鳥"
+    },
+    "mahiwa": {
+        "JPName": "マヒワ", "type": "冬鳥"
+    },
+    "mikoaisa": {
+        "JPName": "ミコアイサ", "type": "冬鳥"
+    },
+    "onagagamo": {
+        "JPName": "オナガガモ", "type": "冬鳥"
+    },
+    "oowashi": {
+        "JPName": "オオワシ", "type": "冬鳥"
+    },
+    "oshidori": {
+        "JPName": "オシドリ", "type": "冬鳥"
+    },
+    "shime": {
+        "JPName": "シメ", "type": "冬鳥"
+    },
+    "sirohara": {
+        "JPName": "シロハラ", "type": "冬鳥"
+    },
+    "tsugumi": {
+        "JPName": "ツグミ", "type": "冬鳥"
+    },
+    "tyougenbou": {
+        "JPName": "チョウゲンボウ", "type": "冬鳥"
+    },
+    "yurikamome": {
+        "JPName": "ユリカモメ", "type": "冬鳥"
+    }
+}

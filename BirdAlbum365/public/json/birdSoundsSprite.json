@@ -1,0 +1,453 @@
+[{
+  "src": "/build/birdSounds/birdSoundsSprite.ogg",
+  "data": {
+    "channels": 12,
+    "audioSprite": [
+      {
+        "id": "akagera",
+        "startTime": 0,
+        "duration": 7000
+      },
+      {
+        "id": "akasyoubin",
+        "startTime": 8000,
+        "duration": 7056.009070294785
+      },
+      {
+        "id": "aogera",
+        "startTime": 17000,
+        "duration": 7056.009070294785
+      },
+      {
+        "id": "aoji",
+        "startTime": 26000,
+        "duration": 7056.009070294785
+      },
+      {
+        "id": "aosagi",
+        "startTime": 35000,
+        "duration": 7056.009070294785
+      },
+      {
+        "id": "ban",
+        "startTime": 44000,
+        "duration": 7000
+      },
+      {
+        "id": "chigohayabusa",
+        "startTime": 52000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "daisagi",
+        "startTime": 61000,
+        "duration": 4284.081632653056
+      },
+      {
+        "id": "dobato",
+        "startTime": 67000,
+        "duration": 7000
+      },
+      {
+        "id": "enaga",
+        "startTime": 75000,
+        "duration": 7055.98639455782
+      },
+      {
+        "id": "ezobitaki",
+        "startTime": 84000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "goisagi",
+        "startTime": 93000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "gojuukara",
+        "startTime": 102000,
+        "duration": 7056.009070294777
+      },
+      {
+        "id": "hachikuma",
+        "startTime": 111000,
+        "duration": 7056.009070294777
+      },
+      {
+        "id": "hakusekirei",
+        "startTime": 120000,
+        "duration": 7056.009070294777
+      },
+      {
+        "id": "hashibirogamo",
+        "startTime": 129000,
+        "duration": 7000
+      },
+      {
+        "id": "hashibosogarasu",
+        "startTime": 137000,
+        "duration": 7056.009070294777
+      },
+      {
+        "id": "hashibutogarasu",
+        "startTime": 146000,
+        "duration": 7000
+      },
+      {
+        "id": "hayabusa",
+        "startTime": 154000,
+        "duration": 7056.009070294777
+      },
+      {
+        "id": "hibari",
+        "startTime": 163000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "hidorigamo",
+        "startTime": 172000,
+        "duration": 7000
+      },
+      {
+        "id": "hishikui",
+        "startTime": 180000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "hiyodori",
+        "startTime": 189000,
+        "duration": 7000
+      },
+      {
+        "id": "hoojiro",
+        "startTime": 197000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "hoojirogamo",
+        "startTime": 206000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "hourokushigi",
+        "startTime": 215000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "isohiyodori",
+        "startTime": 224000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "isoshigi",
+        "startTime": 233000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "iwatsubame",
+        "startTime": 242000,
+        "duration": 7055.9863945578345
+      },
+      {
+        "id": "joubitaki",
+        "startTime": 251000,
+        "duration": 7000
+      },
+      {
+        "id": "kaitsuburi",
+        "startTime": 259000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kakesu",
+        "startTime": 268000,
+        "duration": 7000
+      },
+      {
+        "id": "kakkou",
+        "startTime": 276000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "karugamo",
+        "startTime": 285000,
+        "duration": 7000
+      },
+      {
+        "id": "kasasagi",
+        "startTime": 293000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "kashiradaka",
+        "startTime": 302000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kawarahiwa",
+        "startTime": 311000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "kawasemi",
+        "startTime": 320000,
+        "duration": 7000
+      },
+      {
+        "id": "kawau",
+        "startTime": 328000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "kibitaki",
+        "startTime": 337000,
+        "duration": 7000
+      },
+      {
+        "id": "kiji",
+        "startTime": 345000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kijibato",
+        "startTime": 354000,
+        "duration": 7000
+      },
+      {
+        "id": "kikuitadaki",
+        "startTime": 362000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kisekirei",
+        "startTime": 371000,
+        "duration": 7055.986394557805
+      },
+      {
+        "id": "koajisashi",
+        "startTime": 380000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kochidori",
+        "startTime": 389000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kogamo",
+        "startTime": 398000,
+        "duration": 7000
+      },
+      {
+        "id": "kogera",
+        "startTime": 406000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "kohakutyou",
+        "startTime": 415000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "kojukei",
+        "startTime": 424000,
+        "duration": 7000
+      },
+      {
+        "id": "komukudori",
+        "startTime": 432000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kosagi",
+        "startTime": 441000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "kosamebitaki",
+        "startTime": 450000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "kuroji",
+        "startTime": 459000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "kyoujoshigi",
+        "startTime": 468000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "mahiwa",
+        "startTime": 477000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "mejiro",
+        "startTime": 486000,
+        "duration": 7020.793650793677
+      },
+      {
+        "id": "misosazai",
+        "startTime": 495000,
+        "duration": 7053.061224489795
+      },
+      {
+        "id": "mozu",
+        "startTime": 504000,
+        "duration": 7056.0090702948055
+      },
+      {
+        "id": "mukudori",
+        "startTime": 513000,
+        "duration": 7000
+      },
+      {
+        "id": "nobitaki",
+        "startTime": 521000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "nogoma",
+        "startTime": 530000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "onagagamo",
+        "startTime": 539000,
+        "duration": 7000
+      },
+      {
+        "id": "ooban",
+        "startTime": 547000,
+        "duration": 7000
+      },
+      {
+        "id": "ooruri",
+        "startTime": 555000,
+        "duration": 7000
+      },
+      {
+        "id": "ootaka",
+        "startTime": 563000,
+        "duration": 7056.009070294749
+      },
+      {
+        "id": "oowashi",
+        "startTime": 572000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "ooyoshikiri",
+        "startTime": 581000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "oshidori",
+        "startTime": 590000,
+        "duration": 7000
+      },
+      {
+        "id": "ruribitaki",
+        "startTime": 598000,
+        "duration": 7000
+      },
+      {
+        "id": "sankoutyou",
+        "startTime": 606000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "sashiba",
+        "startTime": 615000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "segurosekirei",
+        "startTime": 624000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "shijuukara",
+        "startTime": 633000,
+        "duration": 7055.986394557863
+      },
+      {
+        "id": "shime",
+        "startTime": 642000,
+        "duration": 7000
+      },
+      {
+        "id": "shirotidori",
+        "startTime": 650000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "sirohara",
+        "startTime": 659000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "suzume",
+        "startTime": 668000,
+        "duration": 7000
+      },
+      {
+        "id": "tashigi",
+        "startTime": 676000,
+        "duration": 7056.009070294749
+      },
+      {
+        "id": "tonbi",
+        "startTime": 685000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "tsubame",
+        "startTime": 694000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "tsugumi",
+        "startTime": 703000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "tsumi",
+        "startTime": 712000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "tyougenbou",
+        "startTime": 721000,
+        "duration": 7056.009070294749
+      },
+      {
+        "id": "uguisu",
+        "startTime": 730000,
+        "duration": 7053.061224489852
+      },
+      {
+        "id": "umineko",
+        "startTime": 739000,
+        "duration": 7055.986394557863
+      },
+      {
+        "id": "uso",
+        "startTime": 748000,
+        "duration": 7055.986394557863
+      },
+      {
+        "id": "yamagara",
+        "startTime": 757000,
+        "duration": 7000
+      },
+      {
+        "id": "yurikamome",
+        "startTime": 765000,
+        "duration": 7053.061224489852
+      }
+    ]
+  }
+}]

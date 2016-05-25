@@ -1,0 +1,132 @@
+
+
+
+#mainWrapper{
+    width:100%;
+    height:100%;
+    min-height: 100%;
+    position:relative;
+}
+
+.main{
+    @at-root{
+        #{&}__canvas{
+            width:100%;
+            height:100%;
+            position: relative;
+        }
+        #{&}__mainGearIconWrapper{
+            bottom:-100px;
+            right:-100px;
+            width:calc(100%/4);
+            position:absolute;
+            transform:translateY(100%);
+            transition: .3s;
+            &::before{
+                content:'';
+                display: block;
+                padding-top: 100%;
+            }
+        }
+        #{&}__mainGearIcon{
+            top:0;
+            left:0;
+            width:100%;
+            position:absolute;
+        }
+        #{&}__seasonTeller{
+            top:0;left:0;right:0;bottom:0;
+            font-size: 40px;
+            width:40px;
+            height:40px;
+            margin:auto;
+            position:absolute;
+            color:white;
+        }
+        #{&}__birdNavWindow{
+            top:200px;
+            left:0;
+        }
+    }
+}
+
+.birdNavWindow{
+    box-sizing: border-box;
+    width:300px;
+    position:absolute;
+    background:$mainBlack;
+    padding: 30px 15px;
+    transform: translateX(-100%);
+    @at-root{
+        #{&}__deleteIcon{
+            top:10px;
+            right:10px;
+            width:20px;
+            height:20px;
+            position:absolute;
+            svg{
+                transition: .1s;
+                &:hover{
+                    transform:scale(1.2);
+                }
+                &:active path{
+                    fill:$mainPink;
+                }
+            }
+        }
+        #{&}__birdName{
+            text-align: center;
+        }
+        #{&}__birdPicture{
+            box-sizing: border-box;
+            width:270px;
+            height:180px;
+            background:white;
+            img{
+                width:100%;
+                height:100%;
+            }
+            canvas{
+                width:100%;
+                height:100%;
+            }
+        }
+        #{&}__bottomColumn{
+            display: table;
+            width:100%;
+            height:100px;
+        }
+        #{&}__textBox{
+            display: table-cell;
+            width:60%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        #{&}__soundIcon{
+            display: table-cell;
+            width:40%;
+            text-align: center;
+            vertical-align: middle;
+            transition: 0.1s;
+            &.js-enlarge{
+                transform:scale(1.2);
+            }
+            &.js-turnPink path{
+                fill:$mainPink;
+            }
+            &.js-soundOff{
+                
+            }
+        }
+    }
+}
+
+#start{
+    bottom:50px;
+    left:300px;
+    position: absolute;
+    background:red;
+}
+
+
+

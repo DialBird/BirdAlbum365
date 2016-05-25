@@ -1,0 +1,26 @@
+doctype html
+html(lang="ja")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport",content="width=device-width,initial-scale=1")
+    title birdAlbum.html
+    script(src="//code.jquery.com/jquery-1.12.0.min.js")
+    script(src="https://cdn.socket.io/socket.io-1.2.0.js")
+    script(src="../lib/js/three/three.min.js")
+    script(src="../lib/js/three/DeviceOrientationControls.js")
+    script(src="../lib/js/three/tween.min.js")
+    script(src="../lib/js/plugin/underscore-min.js")
+    script(src="../lib/js/plugin/stats.min.js")
+    script(src="../lib/js/plugin/sound.min.js")
+    script(src="../lib/js/plugin/preload.min.js")
+body
+    div#wrapper
+        div#canvas
+        p#msg hello
+        button#check check
+        button#sound sound
+        //roomIDの取得
+        input#roomID(type="hidden",value="#{roomID}")
+        //このデバイス名を取得する場所
+        input#thisDevice(type="hidden",value="SM")
+    script(src="../build/page2/js/page2.min.js")
