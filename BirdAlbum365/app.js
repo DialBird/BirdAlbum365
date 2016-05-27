@@ -1,6 +1,6 @@
 
-var express = require('express'),
-    compression = require('compression'),
+const express = require('express');
+var compression = require('compression'),
     path = require('path'),
     logger = require('morgan'),
     bodyParser = require('body-parser');

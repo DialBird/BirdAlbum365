@@ -1,8 +1,12 @@
 #!/bin/bash
 
 #ディレクトリの相対パスを指定(npm runで実行するため、packageJSONからの相対パスになる)
-src_folder="./public/build/birdImages/birdsResized"
-dest_folder="./public/build/birdImages/birdsDistorted"
+#最初のときに使っていたパス
+#src_folder="./public/build/birdImages/birdsResized"
+#dest_folder="./public/build/birdImages/birdsDistorted"
+#es6に書き直した際に使うもの
+src_folder="./public/build/img/birdsResized"
+dest_folder="./public/build/img/birdsDistorted"
 
 
 
