@@ -1,0 +1,112 @@
+doctype html
+html(lang="ja")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width,initial-scale=1")
+        title birdAlbum365
+        link(rel="stylesheet",href="./build/css/mainPageForPC.css",type="text/css")
+        script(src="//code.jquery.com/jquery-1.12.0.min.js")
+        script(src="https://cdn.socket.io/socket.io-1.4.5.js")
+        //script(src="./lib/js/socketIO.min.js")
+        script(src="./lib/js/jquery.qrcode.min.js")
+        script(src="./lib/js/soundJS.min.js")
+        script(src="./lib/js/preloadJS.min.js")
+        script(src="./lib/js/three.min.js")
+        script(src="./lib/js/OrbitControls.js")
+        script(src="./lib/js/TweenLite.min.js")
+        script(src="./lib/js/stats.min.js")
+    body
+        div#firstIntroWindow
+            div.loadingWindow
+                h2.loadingWindow__text ローディング中です
+                div.loadingWindow__loadBar
+                    div.loadingWindow__insideLoadBar
+            div.QRCodeWindow
+                h2.QRCodeWindow__text スマホでQRコードを読み込んでください
+                div.QRCodeWindow__QRCode#QRCode
+        header#headerWrapper
+            div.header__menuIconWrapper
+                img(src="./img/svg/menuOff.svg")
+                div.header__pullDownMenu
+                    ul.header__btnList
+                        li: button.header__seasonBtn.seasonBtn.btn(value="spring") 春
+                        li: button.header__seasonBtn.seasonBtn.btn(value="summer") 夏
+                        li: button.header__seasonBtn.seasonBtn.btn(value="fall") 秋
+                        li: button.header__seasonBtn.seasonBtn.btn(value="winter") 冬
+            div.header__soundControlContainer
+                p sound on
+                div.header__soundIcon.soundIconWrapper
+                    img.soundIconWrapper__offIcon(src="./img/svg/soundOffIcon.svg")
+                    img.soundIconWrapper__onIcon(src="./img/svg/soundOnIcon.svg")
+        main#mainWrapper
+            div.main__canvas#canvas
+            div.main__mainGearIconWrapper
+                img.main__mainGearIcon(src="./img/svg/mainGearIcon.svg")
+                h2.main__seasonTeller 春
+            div.main__birdNavWindow.birdNavWindow
+                div.birdNavWindow__deleteIcon
+                h3.birdNavWindow__birdName.mb25
+                div.birdNavWindow__birdPicture.mb25
+                div.birdNavWindow__bottomColumn
+                    div.birdNavWindow__textBox
+                        p.birdNavWindow__type 夏鳥
+                    div.birdNavWindow__soundIcon
+                    //div.birdNavWindow__soundIcon
+                        div.soundIconWrapper
+                            img.soundIconWrapper__offIcon(src="img/svg/soundOffIcon.svg")
+                            img.soundIconWrapper__onIcon(src="img/svg/soundOnIcon.svg")
+
+            //デバック様
+            //button#start.btn start
+
+        //roomIDの取得
+        input#roomID(type="hidden",value="#{roomID}")
+        
+        script.
+            var socket = io.connect();
+            var MainPageNameSpace = {
+                preset: {
+                    //socket
+                    socket: socket,
+                    //roomID
+                    this_roomID: $('#roomID').val(),
+                    //デバイス判定(PCかスマホ（SM）かを判定する)
+                    thisDevice: 'PC',
+                    //statsをONにするか否か
+                    statsOn: false
+                },
+                preload: {
+                    //鳥の日本語名や季節など
+                    birdData: '',
+                    //emptyの画像
+                    emptyImg: [],
+                    //表示する鳥のスプライト画像
+                    spriteImage: '',
+                    //planeを配置する初期位置を格納
+                    planePositions: '',
+                    //鳥のスプライト画像の位置座標
+                    spriteJSON: '',
+                    loader: ''
+                },
+                init: {
+                    scene: '',
+                    camera: '',
+                    planes: '',
+                    //RayCastClosure
+                    RCC: '',
+                    //周りの景色を貼る球体オブジェクト
+                    omniSphere: '',
+                    //AnimationClosure
+                    AC: ''
+                },
+                main: {
+                    //現在のシーズン
+                    season:'spring'
+                }
+            };
+            
+            //スマホに向けてQRコードを作成
+            $('#QRCode').qrcode(`http://192.168.179.2:3000/mainPageForSM?id=#{roomID}`);
+            //$('#QRCode').qrcode(`birdalbum356.herokuapp.com/mainPageForSM?id=#{roomID}`);
+        script(src="./build/js/mainPage.js")
+        

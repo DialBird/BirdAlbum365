@@ -1,0 +1,151 @@
+doctype html
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    title BirdAlbum365
+    link(rel="stylesheet", href="./lib/css/slick-theme.css")
+    link(rel="stylesheet", href="./lib/css/slick.css")
+    link(rel="stylesheet", href="./build/css/introPage.css")
+    script(src="https://code.jquery.com/jquery-2.2.4.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.min.js")
+    script(src="https://code.createjs.com/preloadjs-0.6.2.min.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js")
+    script(src="./build/js/IntroPageNameSpace.js")
+body
+    //右上にスクロール値を表示
+    //p.calcTop(style="color:red;position:fixed;top:0;right:0;z-index:10;") 0
+    
+    header#header
+        div.header__background
+        div#canvas.header__canvas
+        div.header__loadingBlock
+            img.header__loadingGearIcon.mb25(src="./img/svg/titleGearIcon.svg" width="100")
+            div.header__loadingBar.mb25
+                div.header__insideLoadingBar
+            p.header__loadingText ロード中・・・
+        div.header__inner
+            img.header__titleGearIcon(src="./img/svg/titleGearIcon.svg" width="100")
+            img.header__titleLogo(src="./img/svg/titleLogo.svg")
+            h2.header__text 鳥の365日を360度で
+            
+    main#mainWrapper.clearfix
+        section.main__section1.section1.mb100
+            h2.section1__heading.mb50(data-800="opacity:0;transform:translateY(100%)",data-900="opacity:1;transform:translateY(0%)") What's BirdAlbum365 ?
+            p.section1__text.mb50(data-850="opacity:0;transform:translateY(100%)",data-950="opacity:1;transform:translateY(0%)")
+                |スマホの360度パノラマ機能を使って
+                br
+                |四季折々の鳥たちを3Dで眺めることができる鳥図鑑です
+                br
+                |（ブラウザはchrome、スマホはiphoneを推奨）
+            div.section1__img
+                img(src="./img/svg/3D.svg")
+                img(src="./img/svg/bird.svg",data-700="transform:translate(-50px,50px)",data-1600="opacity:1;transform:translate(50px,-50px)")
+                img(src="./img/svg/bird2.svg",data-700="transform:translate(-50px,50px)",data-1600="opacity:1;transform:translate(50px,-50px)")
+                img(src="./img/svg/bird3.svg",data-700="transform:translate(-50px,50px)",data-1600="opacity:1;transform:translate(50px,-50px)")
+                img(src="./img/svg/bird4.svg",data-700="transform:translate(-50px,50px)",data-1600="opacity:1;transform:translate(50px,-50px)")
+                img(src="./img/svg/bird5.svg",data-700="transform:translate(-50px,50px)",data-1600="opacity:1;transform:translate(50px,-50px)")
+                img(src="./img/svg/book.svg")
+
+        section.main__section2.section2.clearfix.mb100
+            h2.section2__heading.mb50(data-1600="opacity:0;transform:translateY(100%)",data-1700="opacity:1;transform:translateY(0%)") How to Use ?
+            p.section2__text.mb50(data-1650="opacity:0;transform:translateY(100%)",data-1750="opacity:1;transform:translateY(0%)")
+                |QRコードをスマホで読み取ることで
+                br
+                |PCとスマホでインタラクティブに鳥の観察を楽しむことができます
+            div.section2__PCColumnContainer.introContainer
+                img.introContainer__img.mb25(src="./img/svg/PC.svg" width="100")
+                div.introContainer__textBox.mb25
+                    h3.introContainer__textBoxHeading.mb10 CHANGE
+                    p.introContainer__textBoxText 画面上の季節ボタンをを押すことで、季節を切り替えることができます
+                div.introContainer__textBox
+                    h3.introContainer__textBoxHeading.mb10 VOICE
+                    p.introContainer__textBoxText 鳥の説明画面についているサウンドボタンを押すことでその鳥の声を聞くことができます
+            div.section2__SMColumnContainer.introContainer
+                img.introContainer__img.mb25(src="./img/svg/smartphone.svg" width="100")
+                div.introContainer__textBox.mb25
+                    h3.introContainer__textBoxHeading.mb10 TAP
+                    p.introContainer__textBoxText 画面上の鳥の画像をタップすることでその鳥の説明がPC上に出ます
+                div.introContainer__textBox.mb25
+                    h3.introContainer__textBoxHeading.mb10 SLIDE
+                    p.introContainer__textBoxText 画面上の鳥の画像をスライドすると、スライドした方向に画像が移動します
+                div.introContainer__textBox
+                    h3.introContainer__textBoxHeading.mb10 SHAKE
+                    p.introContainer__textBoxText デバイスを振ると鳥がシャッフルされます
+                
+        section.main__section3.section3.clearfix
+            p.section3__text.mb50(data-1650="opacity:0;transform:translateY(100%)",data-1750="opacity:1;transform:translateY(0%)") このサイトは以下のサイトからの転用をしています
+            div.section3__quoteListContainer
+                h3.mb25 写真（鳥の画像）
+                table.section3__table.mb50
+                    tr.section3__tr.bbd
+                        th サイト名
+                        td ゆんフリー写真素材集
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://www.yunphoto.net") http://www.yunphoto.net
+                    tr.section3__tr.bbd
+                        th サイト名
+                        td フリー素材無料写真 森の父さん花鳥風穴
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://www.tousan13.com/") http://www.tousan13.com/
+                    tr.section3__tr.bbd
+                        th サイト名
+                        td まちふぉと
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://machi-photo.net/") http://machi-photo.net/
+                    tr.section3__tr.bbd
+                        th サイト名
+                        td 21フォト
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://www.kenpo21.com/") http://www.kenpo21.com/
+                    tr.section3__tr.bbd
+                        th 著作者
+                        td Airwolfhound
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://free-photos.gatag.net/tag/%E3%82%AB%E3%82%B5%E3%82%B5%E3%82%AE") http://free-photos.gatag.net/tag/%E3%82%AB%E3%82%B5%E3%82%B5%E3%82%AE
+                    tr.section3__tr.bbd
+                        th 著作者
+                        td sgmillionxu2000
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://free-photos.gatag.net/?s=%E3%82%B3%E3%82%B5%E3%82%AE") http://free-photos.gatag.net/?s=%E3%82%B3%E3%82%B5%E3%82%AE
+                    tr.section3__tr.bbd
+                        th 著作者
+                        td Ian A Kirk
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://free-photos.gatag.net/2013/12/11/060000.html") http://free-photos.gatag.net/2013/12/11/060000.html
+                    tr.section3__tr.bbd
+                        th 著作者
+                        td mikebaird
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://www.gatag.net/09/10/2008/083636.html") http://www.gatag.net/09/10/2008/083636.html
+                    tr.section3__tr.bbd
+                        th 著作者
+                        td Don McCullough
+                    tr.section3__tr.bbs
+                        th URL
+                        td: a(href="http://free-photos.gatag.net/2013/06/14/000000.html") http://free-photos.gatag.net/2013/06/14/000000.html
+                h3.mb25 音声（鳥の鳴き声）
+                table.section3__table
+                    tr.section3__tr.bbd
+                        th サイト名
+                        td バードリサーチ　鳴き声図鑑
+                    tr.section3__tr
+                        th URL
+                        td: a(href="http://www.bird-research.jp/1_shiryo/nakigoe.html") http://www.bird-research.jp/1_shiryo/nakigoe.html
+
+    footer#footerWrapper
+        div.footer
+            h2.footer__heading.mb50 Let's Get Started !
+            div.footer__button.button(data-url="/mainPageForPC")
+                p.button__text ページへ飛ぶ
+    
+    script(src="./build/js/introPage.js")
+    script(src="./lib/js/skrollr.min.js")
+    script(type="text/javascript") var s = skrollr.init();

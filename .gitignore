@@ -42,3 +42,10 @@ jspm_packages
 #birdAlbum365
 /BirdAlbum365/WebDesign
 /BirdAlbum365/node_modules
+/BirdAlbum365/public/font
+/BirdAlbum365/public/img
+
+#images
+*.jpg
+*.png
+

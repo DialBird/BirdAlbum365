@@ -1,0 +1,148 @@
+
+
+#header{
+    box-sizing: border-box;
+    width:100%;
+    height:1000px;
+    min-width: 1280px;
+    position:relative;
+}
+
+.header{
+    top:0;bottom:0;left:0;right:0;
+    position:absolute;
+    @at-root{
+        //fixedしたcanvasの後ろに背景が欲しかったので、canvasよりも重なり順が低いレイヤーをつくるため
+        #{&}__background{
+            z-index: -1;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            position:fixed;
+            background-image:url(../../../img/sky.min.jpg);
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        //canvasをfixedにして、パララックスを演出
+        #{&}__canvas{
+            z-index: -1;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+        }
+        #{&}__loadingBlock{
+            box-sizing: border-box;
+            z-index: -1;
+            top:230px;
+            left:0;
+            right:0;
+            width:525px;
+            min-width:320px;
+            height:300px;
+            margin:auto;
+            padding:20px;
+            position:absolute;
+            text-align: center;
+            transition: .5s;
+            &.js-hide{
+                opacity:0;
+                visibility: hidden;
+            }
+        }
+        #{&}__loadingGearIcon{
+            animation: Rotate 40s linear infinite;
+        }
+        #{&}__loadingBar{
+            box-sizing: border-box;
+            width:400px;
+            height:50px;
+            margin:0 auto;
+            position: relative;
+            border:solid 1px;
+        }
+        #{&}__insideLoadingBar{
+            top:0;
+            left:0;
+            width:0%;
+            height:100%;
+            position:absolute;
+            background:$mainPink;
+        }
+        #{&}__inner{
+            box-sizing: border-box;
+            z-index: -1;
+            top:324px;
+            left:0;
+            right:0;
+            width:525px;
+            min-width:320px;
+            margin:auto;
+            position:fixed;
+            text-align: center;
+            opacity:0;
+            transition:opacity .3s;
+            &.js-show{
+                opacity:1;
+            }
+        }
+        #{&}__titleGearIcon{
+            top:-40px;
+            right:-40px;
+            width:50px;
+            height:50px;
+            position:absolute;
+            svg{
+                width:100%;
+                height:100%;
+            }
+        }
+        #{&}__titleLogo{
+            display:block;
+            position:relative;
+            margin:0 auto;
+            margin-bottom: 30px;
+            &::after{
+                
+            }
+            &.js-expandFromCenter::after{
+                animation: ExpandFromCenter 0.4s cubic-bezier(.03, .86, .58, 1) forwards;
+            }
+        }
+        #{&}__text{
+            color:#fff;
+            font-family:'ほのか丸ゴシック';
+            font-size: 45px;
+            text-align: center;
+            text-shadow: 2px 2px 5px #333;
+            position:relative;
+            &::before{
+                content:'';
+                top:-15px;
+                left:0;
+                right:0;
+                width:100%;
+                height:3px;
+                display: block;
+                margin:auto;
+                position:absolute;
+                background:$mainPink;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

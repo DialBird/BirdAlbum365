@@ -1,0 +1,885 @@
+@charset 'UTF-8';
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video
+{
+    font: inherit;
+    font-size: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    vertical-align: baseline;
+
+    border: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section
+{
+    display: block;
+}
+
+body
+{
+    line-height: 1;
+}
+
+ol,
+ul
+{
+    list-style: none;
+}
+
+blockquote,
+q
+{
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after
+{
+    content: '';
+    content: none;
+}
+
+table
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+@font-face
+{
+    font-family: 'ほのか丸ゴシック';
+
+    src: url('../../font/honoka.ttf');
+}
+
+p
+{
+    font-family: 'ほのか丸ゴシック';
+    font-size: 24px;
+    line-height: 2rem;
+
+    color: white;
+}
+
+h2
+{
+    font-family: 'ほのか丸ゴシック';
+    font-size: 40px;
+    line-height: 2rem;
+
+    color: white;
+}
+
+h3
+{
+    font-family: 'ほのか丸ゴシック';
+    font-size: 30px;
+    line-height: 2rem;
+
+    color: white;
+}
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    overflow: hidden;
+
+    height: 100%;
+}
+
+.js-rotate
+{
+    -webkit-animation: RotateToLeft 40s linear infinite;
+            animation: RotateToLeft 40s linear infinite;
+}
+
+@-webkit-keyframes RotateToLeft
+{
+    0%
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100%
+    {
+        -webkit-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+    }
+}
+
+@keyframes RotateToLeft
+{
+    0%
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    100%
+    {
+        -webkit-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+    }
+}
+
+.js-showBirdNav
+{
+    -webkit-animation: ShowBirdNav 1s linear forwards;
+            animation: ShowBirdNav 1s linear forwards;
+}
+
+@-webkit-keyframes ShowBirdNav
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes ShowBirdNav
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.js-hiddenBirdNav
+{
+    -webkit-animation: HiddenBirdNav 1s linear forwards;
+            animation: HiddenBirdNav 1s linear forwards;
+}
+
+@-webkit-keyframes HiddenBirdNav
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+@keyframes HiddenBirdNav
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+.js-slideInFromLeft
+{
+    -webkit-animation: SlideInFromLeft .3s cubic-bezier(.19, .75, .45, .99) forwards;
+            animation: SlideInFromLeft .3s cubic-bezier(.19, .75, .45, .99) forwards;
+}
+
+@-webkit-keyframes SlideInFromLeft
+{
+    0%
+    {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+}
+
+@keyframes SlideInFromLeft
+{
+    0%
+    {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+}
+
+.js-slideOutToLeft
+{
+    -webkit-animation: SlideOutToLeft .3s cubic-bezier(.46, .03, .91, .48) forwards;
+            animation: SlideOutToLeft .3s cubic-bezier(.46, .03, .91, .48) forwards;
+}
+
+@-webkit-keyframes SlideOutToLeft
+{
+    0%
+    {
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+    100%
+    {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+}
+
+@keyframes SlideOutToLeft
+{
+    0%
+    {
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+    }
+    100%
+    {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+}
+
+#headerWrapper
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+
+    -webkit-transition: .3s;
+            transition: .3s;
+
+    background: #494645;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.header__menuIconWrapper
+{
+    width: 40px;
+    height: 40px;
+}
+
+.header__menuIconWrapper:hover img
+{
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+}
+
+.header__menuIconWrapper img
+{
+    width: 100%;
+
+    -webkit-transition: .3s;
+            transition: .3s;
+}
+
+.header__pullDownMenu
+{
+    position: absolute;
+    top: 80%;
+    left: 0;
+
+    visibility: hidden;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    padding: 20px 100px;
+
+    -webkit-transition: .3s;
+            transition: .3s;
+
+    opacity: 0;
+    background: #494645;
+}
+
+.header__pullDownMenu.js-show
+{
+    visibility: visible;
+
+    opacity: 1;
+}
+
+.header__btnList
+{
+    display: table;
+
+    width: 100%;
+    height: 100%;
+
+    table-layout: fixed;
+}
+
+.header__btnList li
+{
+    display: table-cell;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.header__soundControlContainer
+{
+    position: absolute;
+    top: 10px;
+    right: 200px;
+
+    width: 200px;
+    height: 40px;
+}
+
+.header__soundControlContainer p
+{
+    line-height: 40px;
+}
+
+.soundIconWrapper
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 40px;
+    height: 40px;
+}
+
+.soundIconWrapper img
+{
+    -webkit-transition: .3s;
+            transition: .3s;
+}
+
+.soundIconWrapper img:hover
+{
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+
+.soundIconWrapper.js-soundOff .soundIconWrapper__onIcon
+{
+    opacity: 0;
+}
+
+.soundIconWrapper.js-soundOff .soundIconWrapper__offIcon
+{
+    opacity: 1;
+}
+
+.soundIconWrapper__onIcon
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    opacity: 1;
+    color: white;
+}
+
+.soundIconWrapper__offIcon
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    opacity: 0;
+    color: white;
+}
+
+.seasonBtn
+{
+    font-family: 'ほのか丸ゴシック';
+    font-size: 20px;
+    line-height: 20px;
+
+    box-sizing: border-box;
+    width: 100px;
+    height: 50px;
+
+    -webkit-transition: .1s linear;
+            transition: .1s linear;
+    text-align: center;
+
+    color: #333;
+    border-style: none;
+    border-radius: 50px;
+}
+
+.seasonBtn[value='spring']
+{
+    background: #fcdae0;
+}
+
+.seasonBtn[value='summer']
+{
+    background: #00d64a;
+}
+
+.seasonBtn[value='fall']
+{
+    background: #d87a1b;
+}
+
+.seasonBtn[value='winter']
+{
+    background: #6dfff9;
+}
+
+.seasonBtn:hover
+{
+    background: white !important;
+}
+
+#mainWrapper
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+.main__canvas
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+.main__mainGearIconWrapper
+{
+    position: absolute;
+    right: -100px;
+    bottom: -100px;
+
+    width: calc(100%/4);
+
+    -webkit-transition: .3s;
+            transition: .3s;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+}
+
+.main__mainGearIconWrapper::before
+{
+    display: block;
+
+    padding-top: 100%;
+
+    content: '';
+}
+
+.main__mainGearIcon
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+}
+
+.main__seasonTeller
+{
+    font-size: 40px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 40px;
+    height: 40px;
+    margin: auto;
+
+    color: white;
+}
+
+.main__birdNavWindow
+{
+    top: 200px;
+    left: 0;
+}
+
+.birdNavWindow
+{
+    position: absolute;
+
+    box-sizing: border-box;
+    width: 300px;
+    padding: 30px 15px;
+
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+
+    background: #494645;
+}
+
+.birdNavWindow__deleteIcon
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 20px;
+    height: 20px;
+}
+
+.birdNavWindow__deleteIcon svg
+{
+    -webkit-transition: .1s;
+            transition: .1s;
+}
+
+.birdNavWindow__deleteIcon svg:hover
+{
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+
+.birdNavWindow__deleteIcon svg:active path
+{
+    fill: #a8357f;
+}
+
+.birdNavWindow__birdName
+{
+    text-align: center;
+}
+
+.birdNavWindow__birdPicture
+{
+    box-sizing: border-box;
+    width: 270px;
+    height: 180px;
+
+    background: white;
+}
+
+.birdNavWindow__birdPicture img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.birdNavWindow__birdPicture canvas
+{
+    width: 100%;
+    height: 100%;
+}
+
+.birdNavWindow__bottomColumn
+{
+    display: table;
+
+    width: 100%;
+    height: 100px;
+}
+
+.birdNavWindow__textBox
+{
+    display: table-cell;
+
+    width: 60%;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.birdNavWindow__soundIcon
+{
+    display: table-cell;
+
+    width: 40%;
+
+    -webkit-transition: .1s;
+            transition: .1s;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.birdNavWindow__soundIcon.js-enlarge
+{
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+}
+
+.birdNavWindow__soundIcon.js-turnPink path
+{
+    fill: #a8357f;
+}
+
+#start
+{
+    position: absolute;
+    bottom: 50px;
+    left: 300px;
+
+    background: red;
+}
+
+#firstIntroWindow
+{
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    box-sizing: border-box;
+    width: 700px;
+    height: 400px;
+    margin: auto;
+
+    background: #494645;
+}
+
+.loadingWindow
+{
+    -webkit-transition: .3s;
+            transition: .3s;
+}
+
+.loadingWindow__text
+{
+    margin: 40px auto 100px;
+
+    text-align: center;
+}
+
+.loadingWindow__loadBar
+{
+    position: relative;
+
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+
+    background: #fff;
+}
+
+.loadingWindow__insideLoadBar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 40%;
+    height: 50px;
+
+    background: #a8357f;
+}
+
+.QRCodeWindow
+{
+    visibility: hidden;
+
+    opacity: 0;
+}
+
+.QRCodeWindow__text
+{
+    margin: 40px auto 50px;
+
+    text-align: center;
+}
+
+.QRCodeWindow__QRCode
+{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    padding: 20px;
+
+    background: #fff;
+}
+
+.QRCodeWindow__QRCode canvas
+{
+    width: 100%;
+    height: 100%;
+}
+
+.clearfix::after
+{
+    clear: both;
+
+    content: '';
+}
+
+.mb25
+{
+    margin-bottom: 25px;
+}
+
+.mb50
+{
+    margin-bottom: 50px;
+}
+
+.mb100
+{
+    margin-bottom: 200px;
+}
+
+.mb3p
+{
+    margin-bottom: 3%;
+}
+
+.js-disappear
+{
+    display: none;
+}
+
+.js-show
+{
+    visibility: visible;
+
+    opacity: 1;
+}
+
+.js-hide
+{
+    visibility: hidden;
+
+    opacity: 0;
+}
+
+.js-slideInFromOutside
+{
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+}

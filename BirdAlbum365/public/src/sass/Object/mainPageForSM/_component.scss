@@ -1,0 +1,48 @@
+
+
+.clearfix::after{
+    content: '';
+    clear:both;
+}
+.mb20{
+    margin-bottom: 20px;
+}
+.mb25{
+    margin-bottom: 25px;
+}
+.mb50{
+    margin-bottom: 50px;
+}
+.mb100{
+    margin-bottom: 200px;
+}
+
+.mb3p{
+    margin-bottom:3%;
+}
+
+.js-disappear{
+    display:none;
+}
+
+.button{
+    box-sizing: border-box;
+    width:100px;
+    height:50px;
+    border-radius: 50px;
+    background:#fcdae0;
+    color:#333;
+    transition: .1s linear;
+    text-align: center;
+    font-family: 'ほのか丸ゴシック';
+    font-size: 20px;
+    line-height: 20px;
+    &:hover{
+        background:white !important;
+    }
+}
+
+
+
+
+
