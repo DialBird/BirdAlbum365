@@ -57,7 +57,7 @@ html(lang="ja")
                             img.soundIconWrapper__onIcon(src="img/svg/soundOnIcon.svg")
 
             //デバック様
-            //button#start.btn start
+			//button#start.btn start
 
         //roomIDの取得
         input#roomID(type="hidden",value="#{roomID}")
@@ -106,7 +106,6 @@ html(lang="ja")
             };
             
             //スマホに向けてQRコードを作成
-            $('#QRCode').qrcode(`http://192.168.179.2:3000/mainPageForSM?id=#{roomID}`);
-            //$('#QRCode').qrcode(`birdalbum356.herokuapp.com/mainPageForSM?id=#{roomID}`);
+            $('#QRCode').qrcode(`http://153.120.167.116:3000/mainPageForSM?id=#{roomID}`);
         script(src="./build/js/mainPage.js")
         
