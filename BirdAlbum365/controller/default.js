@@ -5,7 +5,16 @@ const router = express.Router();
 
 //PCで最初に表示する画面を表示
 router.get('/', function(req, res, next) {
-  res.render('introPage', {});
+	const ua = req.headers['user-agent'];
+	//スマホだった場合はPCで入る旨を伝えるページへ飛ばす
+	if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+		res.render('loginError', {});
+	//タブレットでもダメ
+	} else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+		res.render('loginError', {});
+	} else {
+		res.render('introPage', {});
+	}
 });
 
 
