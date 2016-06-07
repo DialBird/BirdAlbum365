@@ -132,7 +132,7 @@ module.exports = (NameSpace)=>{
         const cylinderParents = (()=>{
             const array = [];
             const cG = new THREE.BoxGeometry(1,1,1);     //見えなくてもいい
-            const cM = new THREE.MeshPhongMaterial({color : 0xff0000});
+            const cM = new THREE.MeshPhongMaterial({color : 0xff0000, transparent:true, opacity:0, depthWrite:false});
             for (i=0;i<cylinderParentNum;i++){
                 const parentObject = new THREE.Mesh(cG,cM);
                 parentObject.position.set(0,0,0);

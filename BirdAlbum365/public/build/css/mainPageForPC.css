@@ -369,6 +369,8 @@ body
 
     -webkit-transition: .3s;
             transition: .3s;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
 
     background: #494645;
 
@@ -806,14 +808,14 @@ body
 {
     visibility: hidden;
 
+    text-align: center;
+
     opacity: 0;
 }
 
 .QRCodeWindow__text
 {
     margin: 40px auto 50px;
-
-    text-align: center;
 }
 
 .QRCodeWindow__QRCode

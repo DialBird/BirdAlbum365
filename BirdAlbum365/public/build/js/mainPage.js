@@ -1443,7 +1443,7 @@
 	        var cylinderParents = function () {
 	            var array = [];
 	            var cG = new THREE.BoxGeometry(1, 1, 1); //見えなくてもいい
-	            var cM = new THREE.MeshPhongMaterial({ color: 0xff0000 });
+	            var cM = new THREE.MeshPhongMaterial({ color: 0xff0000, transparent: true, opacity: 0, depthWrite: false });
 	            for (i = 0; i < cylinderParentNum; i++) {
 	                var parentObject = new THREE.Mesh(cG, cM);
 	                parentObject.position.set(0, 0, 0);
@@ -1994,13 +1994,14 @@
 	    //スマホがログインしてきたらQRコードを消す
 	    socket.on('SM_login', function () {
 	        $('#firstIntroWindow').addClass('js-disappear');
-	        $('#headerWrapper').css('transform', 'translateY(0)');
 	        $('.main__mainGearIconWrapper').addClass('js-slideInFromOutside');
 	        $('.main__mainGearIcon').addClass('js-rotate');
 	    });
 
 	    //スマホで開始ボタンを押したらplaneを円柱状に配置。最初のアニメーションを実行。PCで音楽を開始
 	    socket.on('startDisplay', function (data) {
+	        //ヘッダーを表示する
+	        $('#headerWrapper').css('transform', 'translateY(0)');
 	        //スマホのシェイクアクションをオンにするために、displayが始まったことを伝える。
 	        NameSpace.main.isDisplaying = true;
 	        var birdNames = data.birdNames;

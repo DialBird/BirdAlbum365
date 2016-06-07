@@ -128,13 +128,14 @@ module.exports = (NameSpace)=>{
     //スマホがログインしてきたらQRコードを消す
     socket.on('SM_login', ()=>{
         $('#firstIntroWindow').addClass('js-disappear');
-        $('#headerWrapper').css('transform','translateY(0)');
         $('.main__mainGearIconWrapper').addClass('js-slideInFromOutside');
         $('.main__mainGearIcon').addClass('js-rotate');
     });
 
     //スマホで開始ボタンを押したらplaneを円柱状に配置。最初のアニメーションを実行。PCで音楽を開始
     socket.on('startDisplay', (data)=>{
+		//ヘッダーを表示する
+        $('#headerWrapper').css('transform','translateY(0)');
         //スマホのシェイクアクションをオンにするために、displayが始まったことを伝える。
         NameSpace.main.isDisplaying = true;
         const birdNames = data.birdNames;
