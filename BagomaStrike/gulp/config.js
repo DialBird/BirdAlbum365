@@ -8,13 +8,13 @@ module.exports = {
     build: originBuildDir,
 
     js: {
-        srcDir: `${originSourceDir}/es6`,
+        srcDir: `${originSourceDir}/js`,
         bldDir: `${originBuildDir}/js`,
         uglify: false
     },
     webpack: {
         entry: {
-            bundle: `${originSourceDir}/es6/index.js`
+            bundle: `${originSourceDir}/js/index.js`
         },
         output: {
             path: __dirname,
@@ -28,11 +28,11 @@ module.exports = {
     },
     resolve: {
         //requireするときに拡張子を省くことができるようになる。
-        extensions: ['', '.es6']
+        extensions: ['','.js']
     },
     module: {
         loaders: [
-            { test: /\.es6$/, exclude: /node_modules/, loaders: ['babel', 'eslint-loader'] }
+            { test: /\.js$/, exclude: /node_modules/, loaders: ['babel', 'eslint-loader'] }
         ]
     },
     eslint:{
