@@ -1791,7 +1791,6 @@
 
 	    //アニメーションモードを変更する
 	    this.changeAnimationMode = function (val) {
-	        console.log(val);
 	        animationMode = val;
 	    };
 

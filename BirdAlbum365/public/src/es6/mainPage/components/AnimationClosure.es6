@@ -54,7 +54,6 @@ class AnimationClosure{
 
         //アニメーションモードを変更する
         this.changeAnimationMode = (val)=>{
-			console.log(val);
             animationMode = val;
         };
 
