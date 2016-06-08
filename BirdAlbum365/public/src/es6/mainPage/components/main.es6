@@ -5,6 +5,8 @@ const THREE = require('THREE');
 
 const SoundJukeBox = require('./SoundJukeBox');
 
+
+
 module.exports = (NameSpace)=>{
     const thisDevice = NameSpace.preset.thisDevice;
     const socket = NameSpace.preset.socket;
@@ -21,9 +23,20 @@ module.exports = (NameSpace)=>{
     const AC = NameSpace.init.AC;
 
 
+    //PCにのみ、季節ごとに鳥たちの声を自動で流すSoundJukeBoxクラスを追加する（bgm）
+    let SJB;
+    if (thisDevice === 'PC'){
+        SJB = new SoundJukeBox();
+    }
+
+
+	//------------------------------------------------------
     //PCで使うDOMのキャッシュ
+	//------------------------------------------------------
+
     let $birdNavWindow,$birdName,$birdType,$birdImageBlock,$birdNavSoundIcon;
     if (thisDevice === 'PC'){
+		//鳥の説明画面のDOM
         $birdNavWindow = $('.birdNavWindow');
         $birdName = $('.birdNavWindow__birdName');
         $birdType = $('.birdNavWindow__type');
@@ -32,17 +45,12 @@ module.exports = (NameSpace)=>{
     }
 
 
-    //季節ごとに鳥たちの声を自動で流すクラス（bgm）
-    let SJB;
-    if (thisDevice === 'PC'){
-        SJB = new SoundJukeBox();
-    }
-
     //------------------------------------------------------
     //DOMイベント
     //------------------------------------------------------
 
-    //アニメーション開始ボタン
+	//スマホ側
+    //一番最初にボタンを押して、鳥図鑑のディスプレイを始める
     $('#start').on('touchend', ()=>{
         socket.emit('startDisplay',{
             id: thisRoomID
@@ -52,39 +60,35 @@ module.exports = (NameSpace)=>{
         }
     });
 
-
+	//PC側
     if (thisDevice === 'PC'){
         //headerのマウスアクション
         $('.header__menuIconWrapper').on({
-            'mouseenter':function(){
+            'mouseenter':()=>{
                 $('.header__pullDownMenu').addClass('js-show');
             },
-            'mouseleave':function(){
+            'mouseleave':()=>{
                 $('.header__pullDownMenu').removeClass('js-show');
             }
         });
 
         //bgmのサウンドをオンオフするボタン(スタートボタン押すまでは使えない)
         (()=>{
-            let isPlaying = true;
+			let isBgmOn_;
             $('.soundIconWrapper').on('click', ()=>{
-                if (isPlaying){
-                    isPlaying = false;
+                if (isBgmOn_){
+                    isBgmOn_ = false;
                     //アイコンの見た目を変える
                     $('.soundIconWrapper').addClass('js-soundOff');
                     $('.soundIconWrapper').siblings('p').text('sound off');
                     SJB.BGM_state = 'stop';
-                    if (SJB.isAvailable){
-                        SJB.stopBGM();
-                    }
+					SJB.stopBGM();
                 } else {
-                    isPlaying = true;
+                    isBgmOn_ = true;
                     $('.soundIconWrapper').removeClass('js-soundOff');
                     $('.soundIconWrapper').siblings('p').text('sound on');
                     SJB.BGM_state = 'playing';
-                    if (SJB.isAvailable){
-                        SJB.startBGM();
-                    }
+					SJB.startBGM();
                 }
             });
         })();
@@ -111,15 +115,6 @@ module.exports = (NameSpace)=>{
     }
 
 
-    //------------------------------------------------------
-    //SVG画像を読み込み（アニメーション）
-    //------------------------------------------------------
-
-    if (thisDevice === 'PC'){
-        $('.birdNavWindow__soundIcon').load('./img/svg/soundOnIcon.svg svg');
-        $('.birdNavWindow__deleteIcon').load('./img/svg/deleteIcon.svg svg');
-    }
-
 
     //------------------------------------------------------
     //Socketでイベント待機
@@ -143,7 +138,6 @@ module.exports = (NameSpace)=>{
         AC.changeAnimationMode('appear');
         RCC.changeRayCastSwitch(true);
         if (thisDevice === 'PC'){
-            SJB.isAvailable = true;
             SJB.setBirdNames(birdNames);
             if (SJB.BGM_state === 'playing'){
                 SJB.startBGM();
@@ -185,45 +179,45 @@ module.exports = (NameSpace)=>{
 
             //サウンドアイコンをクリックしたら音を流す仕組み
             (()=>{
-                //クリックイベントを新しく作る
                 //アイコンをピンクにするaddClassはSoundJukeBox.js内に記述している
-                let isPlaying = false;
+                let isSingleSoundOn_ = false;
                 let tid;
                 $birdNavSoundIcon.on({
-                    'click':function(){
-                        if (!isPlaying){
+                    'click':()=>{
+                        if (!isSingleSoundOn_){
                             /*まず音源があるかどうかを確認し、あれば音楽を流してスイッチをオンにする
                             そのあと約7秒間の音楽が流れるので、7秒後にスイッチをオフにする
                             BGMのボリュームは、皆クラスの方で管理
                             */
                             const result = SJB.playSpecificBirdSound(birdName);
                             if (result) {
-                                isPlaying = true;
+                                isSingleSoundOn_ = true;
                                 $birdNavSoundIcon.addClass('js-turnPink');
                                 tid = setTimeout(()=>{
-                                    isPlaying = false;
+                                    isSingleSoundOn_ = false;
                                     $birdNavSoundIcon.removeClass('js-turnPink');
                                 },7500);
                             } else {
-                                //console.log('no');
+                                //console.log('no sound');
                             }
                         } else {
                             //こちらは押せばオフにするの一択
                             clearTimeout(tid);
-                            isPlaying = false;
+                            isSingleSoundOn_ = false;
                             $birdNavSoundIcon.removeClass('js-turnPink');
                             SJB.stopSpecificBirdSound();
                         }
                     },
-                    'mouseenter':function(){
+                    'mouseenter':()=>{
                         $birdNavSoundIcon.addClass('js-enlarge');
                     },
-                    'mouseleave':function(){
+                    'mouseleave':()=>{
                         $birdNavSoundIcon.removeClass('js-enlarge');
                     }
                 });
             })();
 
+			//鳥の画像をスマホでタップしたら、左側から鳥の説明画像がスライドしてきて残る。説明画像右上のデリートボタンを押すまで残る
             $birdNavWindow.removeClass('js-slideInFromLeft js-slideOutToLeft');
             $birdNavWindow.addClass('js-slideInFromLeft');
         }
@@ -267,7 +261,7 @@ module.exports = (NameSpace)=>{
         },1000);
     });
 
-    //スマホのタップ開始
+    //スマホでタップした時、もしも画像の上であれば、回転を停止する
     socket.on('tapStart', (data)=>{
         const parentObjectName = data.parentObjectName;
         AC.changeRotateSwitch(parentObjectName,false);

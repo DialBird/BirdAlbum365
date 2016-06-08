@@ -12,40 +12,48 @@ class RayCastClosure{
         const thisRoomID = NameSpace.preset.thisRoomID;
         const thisDevice = NameSpace.preset.thisDevice;
 
-        //initから
         const camera = NameSpace.init.camera;
         const planes = NameSpace.init.planes;
-        
-        //rayCastをオンオフするスイッチ（鳥の説明が出ている間はオフにするため）
-        let rayCastSwitch = false;
 
-        //アルバムを動かすためにタップしたのと、写真を選択するためにタップしたのかを判定するための変数
-        let isClicked = false;
 
+		//マウスの位置座標を取得して、レイキャスト判定をするのに必要な変数
         const ray = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
+        
+
+        //スクリーンをタップした後、スライドすればスワイプアクションして認識し、スライドせずに話した時は時には説明画像を出すようにする
+        let isScreenTapped = false;
+
+
+		//画像をスライドアクションした時に、スライドする方向へ画像を動かせるように、画像が属している親オブジェクトを取得し、その親オブジェクトをスライドした方向にスライドした分だけ動かすために使う変数
         let parentObjectName = '';
         let prevPosition = '';
         let speed = 0;
 
-        //rayCastSwitchを変更する
-        this.changeRayCastSwitch = (_bool)=>{
-            rayCastSwitch = _bool;
-        };
-        
+        //rayCastをオンオフするスイッチ（鳥の説明が出ている間はオフにするため）
+        let rayCastSwitch = false;
+
+
+		//------------------------------------------------------
+		//メソッド
+		//------------------------------------------------------
+
+        //rayCastSwitchを変更する(main関数で、鳥の画像が映し出されるまで、raycastを無効にする)
+		this.changeRayCastSwitch = (_bool)=>{
+			rayCastSwitch = _bool;
+		};
+
+
         //canvasイベント
         $canvas.on({
             'touchstart': handleMouseDown,
-            //        'mousedown': handleMouseDown,
             'touchmove': handleMouseMove,
-            //        'mousemove': handleMouseMove,
             'touchend': handleMouseUp
-            //        'mouseup': handleMouseUp
         });
         
         function handleMouseDown(e){
             //鳥の説明出すための判定はこれだけでじゅうぶん
-            isClicked = true;
+            isScreenTapped = true;
             //以下はタップスライドのためのもの
             if (rayCastSwitch === false) return;
             speed = 0;
@@ -66,7 +74,7 @@ class RayCastClosure{
         
         function handleMouseMove(e){
             //鳥の説明出すための判定はこれだけでじゅうぶん
-            isClicked = false;
+            isScreenTapped = false;
 
             //以下はタップスライドのためのもの
             //何も動かしていない
@@ -94,8 +102,8 @@ class RayCastClosure{
             }());
 
             //鳥の解説を出すsocket
-            if (isClicked){
-                isClicked = false;
+            if (isScreenTapped){
+                isScreenTapped = false;
                 if (rayCastSwitch === false){return;}
                 mouse.x = (e.originalEvent.pageX/canWidth)*2 - 1;
                 mouse.y = -(e.originalEvent.pageY/canHeight)*2 + 1;

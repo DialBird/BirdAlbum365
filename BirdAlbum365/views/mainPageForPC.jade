@@ -100,5 +100,10 @@ html(lang="ja")
             } else {
                 $('#QRCode').qrcode(`http://153.120.167.116:3000/mainPageForSM?id=#{roomID}`);
             }
+        script.
+            //SVG画像を読み込む
+            $('.birdNavWindow__soundIcon').load('./img/svg/soundOnIcon.svg svg');
+            $('.birdNavWindow__deleteIcon').load('./img/svg/deleteIcon.svg svg');
+
         script(src="./build/js/mainPage.js")
         

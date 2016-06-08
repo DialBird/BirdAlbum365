@@ -16,7 +16,6 @@ class SoundJukeBox{
         this.birdNameList = '';
         this.specificBirdSoundChannel = '';
         this.BGMchannel = '';
-        this.isAvailable = false;
         this.BGM_state = 'playing';
     }
     //特定の鳥の音声だけ流す
