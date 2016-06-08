@@ -44,7 +44,11 @@ class RayCastClosure{
 		};
 
 
-        //canvasイベント
+
+		//------------------------------------------------------
+        //スマホでのタップ・タッチスライドアクションイベントの設定
+		//------------------------------------------------------
+
         $canvas.on({
             'touchstart': handleMouseDown,
             'touchmove': handleMouseMove,
@@ -91,7 +95,7 @@ class RayCastClosure{
 
         //Raycastを飛ばす
         function handleMouseUp(e){
-            (function(){
+            (()=>{
                 //止めてそのまま話す
                 prevPosition = '';
                 socket.emit('tapEnd',{
@@ -99,7 +103,7 @@ class RayCastClosure{
                     parentObjectName: parentObjectName,
                     speed: speed
                 });
-            }());
+            })();
 
             //鳥の解説を出すsocket
             if (isScreenTapped){
