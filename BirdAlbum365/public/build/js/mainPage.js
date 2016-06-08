@@ -1761,25 +1761,37 @@
 
 	    var cylinderParentNum = cylinderParents.length;
 
-	    //PCのみ使うDOMキャッシュ
+	    //ループ用の変数
+	    var i = void 0;
+
+	    //------------------------------------------------------
+	    //DOMキャッシュ
+	    //------------------------------------------------------
+	    //PCのみ
 	    if (thisDevice === 'PC') {
 	        var $birdNavWindow = $('.birdNavWindow');
 	        var $birdName = $('.birdNavWindow__birdName');
 	        var $birdImageBlock = $('.birdNavWindow__birdPicture');
 	    }
 
-	    //ループ用の変数
-	    var i = void 0;
-
+	    //------------------------------------------------------
 	    //アニメーションを変更する核となる変数。これが変わることによってアニメーションモードが変わる
+	    //------------------------------------------------------
+	    //五段のそれぞれの段において、回転しているかどうかを格納しておく（スワイプしている時は、その段だけ回転を止めるため）
 	    var rotateSwitchs = [true, true, true, true, true];
-	    //本来はdisplayModeを円柱状以外のバージョンも作ろうと思ったけど、断念してこうなった。
+
+	    //本来はdisplayModeを円柱状以外のバージョンも作った際に切り替えられるように作成。しかし今回はcylinderのみ。
 	    var displayMode = 'cylinder';
 	    var rotationSpeed = 0.05;
 	    var animationMode = 'off';
 
+	    //------------------------------------------------------
+	    //メソッド
+	    //------------------------------------------------------
+
 	    //アニメーションモードを変更する
 	    this.changeAnimationMode = function (val) {
+	        console.log(val);
 	        animationMode = val;
 	    };
 
@@ -1788,7 +1800,7 @@
 	        rotateSwitchs[num] = bool;
 	    };
 
-	    //特定の親オブジェクトを特定の方向に回転させる
+	    //特定の親オブジェクトを特定の方向に回転させる(スワイプ時に使用)
 	    this.rotateSpecificParent = function (num, speed) {
 	        cylinderParents[num].rotation.y += speed;
 	    };
@@ -1834,9 +1846,9 @@
 
 	    //回転しながら現れる
 	    this.rotateAppearAnimation = function () {
-	        var param = { y: Math.PI / 720 };
+	        var param = { y: Math.PI / 360 };
 	        for (i = 0; i < cylinderParentNum; i++) {
-	            TweenLite.fromTo(param, 1, { y: Math.PI / 720 }, { y: 0, onUpdate: handleUpdate });
+	            TweenLite.fromTo(param, 1, { y: Math.PI / 360 }, { y: 0, onUpdate: handleUpdate });
 	        }
 	        for (i = 0; i < planeNum; i++) {
 	            planes[i].material.depthWrite = true;
@@ -1856,7 +1868,7 @@
 	    this.rotateDisppearAnimation = function () {
 	        var param = { y: 0 };
 	        for (i = 0; i < cylinderParentNum; i++) {
-	            TweenLite.fromTo(param, 1, { y: 0 }, { y: Math.PI / 720, onUpdate: handleUpdate });
+	            TweenLite.fromTo(param, 1, { y: 0 }, { y: Math.PI / 360, onUpdate: handleUpdate });
 	        }
 	        for (i = 0; i < planeNum; i++) {
 	            //これがないと、背景のsphereの後ろ側（白背景）が写ってしまう

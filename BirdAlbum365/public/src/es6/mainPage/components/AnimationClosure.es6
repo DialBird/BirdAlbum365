@@ -18,25 +18,43 @@ class AnimationClosure{
         
         const cylinderParentNum = cylinderParents.length;
 
-        //PCのみ使うDOMキャッシュ
+        //ループ用の変数
+        let i;
+
+
+
+		//------------------------------------------------------
+        //DOMキャッシュ
+		//------------------------------------------------------
+		//PCのみ
         if (thisDevice === 'PC'){
             const $birdNavWindow = $('.birdNavWindow');
             const $birdName = $('.birdNavWindow__birdName');
             const $birdImageBlock = $('.birdNavWindow__birdPicture');
         }
 
-        //ループ用の変数
-        let i;
 
+
+		//------------------------------------------------------
         //アニメーションを変更する核となる変数。これが変わることによってアニメーションモードが変わる
+		//------------------------------------------------------
+		//五段のそれぞれの段において、回転しているかどうかを格納しておく（スワイプしている時は、その段だけ回転を止めるため）
         const rotateSwitchs = [true,true,true,true,true];
-        //本来はdisplayModeを円柱状以外のバージョンも作ろうと思ったけど、断念してこうなった。
+
+        //本来はdisplayModeを円柱状以外のバージョンも作った際に切り替えられるように作成。しかし今回はcylinderのみ。
         const displayMode = 'cylinder';
         const rotationSpeed = 0.05;
         let animationMode = 'off';
         
+
+
+		//------------------------------------------------------
+		//メソッド
+		//------------------------------------------------------
+
         //アニメーションモードを変更する
         this.changeAnimationMode = (val)=>{
+			console.log(val);
             animationMode = val;
         };
 
@@ -45,7 +63,7 @@ class AnimationClosure{
             rotateSwitchs[num] = bool;
         };
 
-        //特定の親オブジェクトを特定の方向に回転させる
+        //特定の親オブジェクトを特定の方向に回転させる(スワイプ時に使用)
         this.rotateSpecificParent = (num, speed)=>{
             cylinderParents[num].rotation.y += speed;
         };
@@ -91,10 +109,10 @@ class AnimationClosure{
 
         //回転しながら現れる
         this.rotateAppearAnimation = ()=>{
-            const param = {y:Math.PI/720};
+            const param = {y:Math.PI/360};
             for (i=0;i<cylinderParentNum;i++){
                 TweenLite.fromTo(param,1,
-                                 {y:Math.PI/720},
+                                 {y:Math.PI/360},
                                  {y:0,onUpdate:handleUpdate}
                                 );
             }
@@ -121,7 +139,7 @@ class AnimationClosure{
             for (i=0;i<cylinderParentNum;i++){
                 TweenLite.fromTo(param,1,
                                  {y:0},
-                                 {y:Math.PI/720, onUpdate:handleUpdate}
+                                 {y:Math.PI/360, onUpdate:handleUpdate}
                                 );
             }
             for (i=0;i<planeNum;i++){
