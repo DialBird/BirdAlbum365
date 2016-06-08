@@ -1,4 +1,6 @@
 
+//複数の鳥の画像を一枚のスプライト画像にするためのタスク
+
 //const gulp = require('gulp');
 //const spritesmith = require('gulp.spritesmith');
 //

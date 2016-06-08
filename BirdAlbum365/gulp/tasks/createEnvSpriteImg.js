@@ -1,4 +1,7 @@
 
+//環境マップをスプライト化するために使っていたタスク。
+//実際はこの画像は使わず、球体にそのまま360度写真を貼って使った。
+
 //const gulp = require('gulp');
 //const spritesmith = require('gulp.spritesmith');
 //

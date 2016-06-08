@@ -1,4 +1,5 @@
 
+//画像の容量を減らす
 
 //const gulp = require('gulp');
 //const imagemin = require('gulp-imagemin');

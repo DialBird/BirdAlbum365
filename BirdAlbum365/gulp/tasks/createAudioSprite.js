@@ -4,13 +4,13 @@ const audiosprite = require('gulp-audiosprite');
 
 const config = require('../config');
 
-gulp.task('createAudioSprite',function(){
-    gulp.src(config.audio.srcDir)
+gulp.task('createAudioSprite',()=>{
+    gulp.src(`${ config.audio.srcDir}/*mp3`)
         .pipe(audiosprite({
             output: 'birdSoundsSprite',
             export: 'ogg',
             format: 'createjs',
             bitrate: '64'
         }))
-        .pipe(config.audio.bldDir);
+        .pipe(gulp.dest(config.audio.bldDir));
 });
