@@ -74,15 +74,15 @@ module.exports = (NameSpace)=>{
 
         //bgmのサウンドをオンオフするボタン(スタートボタン押すまでは使えない)
         (()=>{
-			let isBgmOn_;
+			let isBgmOn_ = true;
             $('.soundIconWrapper').on('click', ()=>{
                 if (isBgmOn_){
                     isBgmOn_ = false;
                     //アイコンの見た目を変える
                     $('.soundIconWrapper').addClass('js-soundOff');
                     $('.soundIconWrapper').siblings('p').text('sound off');
-                    SJB.BGM_state = 'stop';
 					SJB.stopBGM();
+                    SJB.BGM_state = 'stop';
                 } else {
                     isBgmOn_ = true;
                     $('.soundIconWrapper').removeClass('js-soundOff');

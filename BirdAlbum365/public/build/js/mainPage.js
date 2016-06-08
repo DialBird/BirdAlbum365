@@ -1974,15 +1974,15 @@
 
 	        //bgmのサウンドをオンオフするボタン(スタートボタン押すまでは使えない)
 	        (function () {
-	            var isBgmOn_ = void 0;
+	            var isBgmOn_ = true;
 	            $('.soundIconWrapper').on('click', function () {
 	                if (isBgmOn_) {
 	                    isBgmOn_ = false;
 	                    //アイコンの見た目を変える
 	                    $('.soundIconWrapper').addClass('js-soundOff');
 	                    $('.soundIconWrapper').siblings('p').text('sound off');
-	                    SJB.BGM_state = 'stop';
 	                    SJB.stopBGM();
+	                    SJB.BGM_state = 'stop';
 	                } else {
 	                    isBgmOn_ = true;
 	                    $('.soundIconWrapper').removeClass('js-soundOff');
@@ -2230,13 +2230,20 @@
 	//------------------------------------------------------
 	//音声を管理するクラス
 	//------------------------------------------------------
+
 	/*
-	bgmのオンオフはBGM_stateとstartBGM~stopBGMまでの４つの関数で行う
-	BGM_stateは外部から操作し、これが「stop」になっている間は、４つの関数は機能しなくなる
-	このBGM_stateに直接関与するのはheaderにあるsoundのオンオフボタンと、一番最初の開始の時だけである
+	このクラスでは、ランダムに選んだ鳥の鳴き声を流しつづける機能（BGM機能）と、特定の鳥の音声を流す機能とがある。
+	前者は鳥の画像の出現とともに流れ出し、画面右上のサウンドアイコンをオフにしない限り流れ続ける。
+	後者は鳥の説明画面の音声アイコンを押すと流れ出し、約７秒後に自動で止まる。右上のサウンドアイコンのオンオフに依存しない。
 	*/
 
-	//soundJSとpreloadJS両方
+	/*
+	bgmのオンオフはメンバ変数のBGM_stateと4つのメソッドのstartBGM~stopBGMで行う
+	BGM_stateは外部から操作し、これが「stop」になっている間は、４つの関数は機能しなくなる
+	このBGM_stateを変更するのは画面右上にあるsoundのオンオフボタンと、一番最初の開始の時だけである
+	*/
+
+	//soundJSとpreloadJS両方を使う
 	var createjs = __webpack_require__(8);
 
 	var SoundJukeBox = function () {
@@ -2246,9 +2253,16 @@
 	        this.birdNameList = '';
 	        this.specificBirdSoundChannel = '';
 	        this.BGMchannel = '';
+
+	        //bgmが流れているかどうかを格納
 	        this.BGM_state = 'playing';
 	    }
-	    //特定の鳥の音声だけ流す
+
+	    //------------------------------------------------------
+	    //メソッド
+	    //------------------------------------------------------
+
+	    //鳥の説明画面に付いている音声ボタンを押した時に発動し、特定の鳥の音声だけ流す
 
 
 	    _createClass(SoundJukeBox, [{
@@ -2256,7 +2270,7 @@
 	        value: function playSpecificBirdSound(_birdName) {
 	            var self = this;
 
-	            //インスタンス作成
+	            //Soundインスタンス作成
 	            this.specificBirdSoundChannel = createjs.Sound.createInstance(_birdName);
 	            this.specificBirdSoundChannel.play();
 
@@ -2284,6 +2298,7 @@
 	            }
 	            this.specificBirdSoundChannel.stop();
 	        }
+
 	        //app側からsoundリストを受け取って、ランダムに音楽を流す
 
 	    }, {
@@ -2291,6 +2306,9 @@
 	        value: function setBirdNames(_birdNameList) {
 	            this.birdNameList = _birdNameList;
 	        }
+
+	        //BGMを流す関数。一度発動したら、BGM_stateがstopになるまで連続して発動する。
+
 	    }, {
 	        key: 'startBGM',
 	        value: function startBGM() {
@@ -2312,12 +2330,18 @@
 	                self.startBGM();
 	            });
 	        }
+
+	        //BGMを止める関数
+
 	    }, {
 	        key: 'stopBGM',
 	        value: function stopBGM() {
-	            if (this.BGM_state === 'playing') return;
+	            if (this.BGM_state === 'stop') return;
 	            this.BGMchannel.stop();
 	        }
+
+	        //メンバ変数のbirdNameList内からランダムに鳥を選び、鳥の鳴き声を流す
+
 	    }, {
 	        key: 'createRandomInstance',
 	        value: function createRandomInstance() {

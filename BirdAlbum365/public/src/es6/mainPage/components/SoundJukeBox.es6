@@ -2,13 +2,20 @@
 //------------------------------------------------------
 //音声を管理するクラス
 //------------------------------------------------------
+
 /*
-bgmのオンオフはBGM_stateとstartBGM~stopBGMまでの４つの関数で行う
-BGM_stateは外部から操作し、これが「stop」になっている間は、４つの関数は機能しなくなる
-このBGM_stateに直接関与するのはheaderにあるsoundのオンオフボタンと、一番最初の開始の時だけである
+このクラスでは、ランダムに選んだ鳥の鳴き声を流しつづける機能（BGM機能）と、特定の鳥の音声を流す機能とがある。
+前者は鳥の画像の出現とともに流れ出し、画面右上のサウンドアイコンをオフにしない限り流れ続ける。
+後者は鳥の説明画面の音声アイコンを押すと流れ出し、約７秒後に自動で止まる。右上のサウンドアイコンのオンオフに依存しない。
 */
 
-//soundJSとpreloadJS両方
+/*
+bgmのオンオフはメンバ変数のBGM_stateと4つのメソッドのstartBGM~stopBGMで行う
+BGM_stateは外部から操作し、これが「stop」になっている間は、４つの関数は機能しなくなる
+このBGM_stateを変更するのは画面右上にあるsoundのオンオフボタンと、一番最初の開始の時だけである
+*/
+
+//soundJSとpreloadJS両方を使う
 const createjs = require('createjs');
 
 class SoundJukeBox{
@@ -16,13 +23,21 @@ class SoundJukeBox{
         this.birdNameList = '';
         this.specificBirdSoundChannel = '';
         this.BGMchannel = '';
+
+		//bgmが流れているかどうかを格納
         this.BGM_state = 'playing';
     }
-    //特定の鳥の音声だけ流す
+
+
+	//------------------------------------------------------
+	//メソッド
+	//------------------------------------------------------
+
+    //鳥の説明画面に付いている音声ボタンを押した時に発動し、特定の鳥の音声だけ流す
     playSpecificBirdSound(_birdName){
         const self = this;
 
-        //インスタンス作成
+        //Soundインスタンス作成
         this.specificBirdSoundChannel = createjs.Sound.createInstance(_birdName);
         this.specificBirdSoundChannel.play();
 
@@ -42,16 +57,20 @@ class SoundJukeBox{
 
         return true;
     }
+
     stopSpecificBirdSound(){
         if (this.BGM_state === 'playing'){
             this.BGMchannel._resume();
         }
         this.specificBirdSoundChannel.stop();
     }
+
     //app側からsoundリストを受け取って、ランダムに音楽を流す
     setBirdNames(_birdNameList){
         this.birdNameList = _birdNameList;
     }
+
+	//BGMを流す関数。一度発動したら、BGM_stateがstopになるまで連続して発動する。
     startBGM(){
         //もしbgmをoffにしていればreturn
         if (this.BGM_state === 'stop') return;
@@ -71,10 +90,14 @@ class SoundJukeBox{
             self.startBGM();
         });
     }
+
+	//BGMを止める関数
     stopBGM(){
-        if (this.BGM_state === 'playing') return;
+        if (this.BGM_state === 'stop') return;
         this.BGMchannel.stop();
     }
+
+	//メンバ変数のbirdNameList内からランダムに鳥を選び、鳥の鳴き声を流す
     createRandomInstance(){
         const len = this.birdNameList.length;
         const ranNum = Math.floor(Math.random()*len);
