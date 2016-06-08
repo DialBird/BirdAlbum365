@@ -7,6 +7,7 @@ const Promise = require('es6-promise').Promise;
 const $ = require('jquery');
 const createjs = require('createjs');
 
+
 module.exports = (NameSpace)=>{
     return new Promise((resolve)=>{
         const thisDevice = NameSpace.preset.thisDevice;

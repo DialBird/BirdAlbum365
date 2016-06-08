@@ -8,7 +8,7 @@ const SoundJukeBox = require('./SoundJukeBox');
 module.exports = (NameSpace)=>{
     const thisDevice = NameSpace.preset.thisDevice;
     const socket = NameSpace.preset.socket;
-    const this_roomID = NameSpace.preset.this_roomID;
+    const thisRoomID = NameSpace.preset.thisRoomID;
     
     const loader = NameSpace.preload.loader;
     const birdData = loader.getResult('birdDataJSON');
@@ -45,7 +45,7 @@ module.exports = (NameSpace)=>{
     //アニメーション開始ボタン
     $('#start').on('touchend', ()=>{
         socket.emit('startDisplay',{
-            id: this_roomID
+            id: thisRoomID
         });
         if (thisDevice === 'SM'){
             $('#navWrap').addClass('js-disappear');
@@ -92,7 +92,7 @@ module.exports = (NameSpace)=>{
         //季節を変更するボタン
         $('.seasonBtn').on('click', (e)=>{
             socket.emit('changeSeason',{
-                id: this_roomID,
+                id: thisRoomID,
                 season: e.target.value
             });
         });
@@ -105,7 +105,7 @@ module.exports = (NameSpace)=>{
     } else if (thisDevice === 'SM'){
         $('#check').on('click', ()=>{
             socket.emit('startDisplay',{
-                id: this_roomID
+                id: thisRoomID
             });
         });
     }
@@ -205,7 +205,7 @@ module.exports = (NameSpace)=>{
                                     $birdNavSoundIcon.removeClass('js-turnPink');
                                 },7500);
                             } else {
-                                console.log('no');
+                                //console.log('no');
                             }
                         } else {
                             //こちらは押せばオフにするの一択

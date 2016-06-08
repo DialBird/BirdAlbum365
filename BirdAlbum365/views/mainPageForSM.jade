@@ -34,7 +34,7 @@ html(lang="ja")
                     //socket
                     socket: socket,
                     //roomID
-                    this_roomID: $('#roomID').val(),
+                    thisRoomID: $('#roomID').val(),
                     //デバイス判定(PCかスマホ（SM）かを判定する)
                     thisDevice: 'SM',
                     //statsをONにするか否か
@@ -78,7 +78,7 @@ html(lang="ja")
                 $(this).gShake(function(){
                     if (MainPageNameSpace.main.isDisplaying){
                         var season = MainPageNameSpace.main.season;
-                        var roomID = MainPageNameSpace.preset.this_roomID;
+                        var roomID = MainPageNameSpace.preset.thisRoomID;
                         console.log(MainPageNameSpace);
                         socket.emit('shake',{
                             id: roomID,

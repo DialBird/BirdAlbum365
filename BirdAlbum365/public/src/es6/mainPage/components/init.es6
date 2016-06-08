@@ -15,7 +15,7 @@ const AnimationClosure = require('./AnimationClosure');
 module.exports = (NameSpace)=>{
     return new Promise((resolve)=>{
         const socket = NameSpace.preset.socket;
-        const this_roomID = NameSpace.preset.this_roomID;
+        const thisRoomID = NameSpace.preset.thisRoomID;
         const thisDevice = NameSpace.preset.thisDevice;
         
         const loader = NameSpace.preload.loader;

@@ -9,7 +9,7 @@ const THREE = require('THREE');
 class RayCastClosure{
     constructor(NameSpace, $canvas, canWidth, canHeight){
         const socket = NameSpace.preset.socket;
-        const this_roomID = NameSpace.preset.this_roomID;
+        const thisRoomID = NameSpace.preset.thisRoomID;
         const thisDevice = NameSpace.preset.thisDevice;
 
         //initから
@@ -58,7 +58,7 @@ class RayCastClosure{
                 parentObjectName = target.object.parent.name;
                 prevPosition = {x:mouse.x, y:mouse.y};
                 socket.emit('tapStart',{
-                    id: this_roomID,
+                    id: thisRoomID,
                     parentObjectName: parentObjectName
                 });
             }
@@ -75,7 +75,7 @@ class RayCastClosure{
             mouse.x = (e.originalEvent.pageX/canWidth)*2 - 1;
             speed = (prevPosition.x - mouse.x) *0.01;
             socket.emit('tapMove',{
-                id: this_roomID,
+                id: thisRoomID,
                 parentObjectName: parentObjectName,
                 speed: speed
             });
@@ -87,7 +87,7 @@ class RayCastClosure{
                 //止めてそのまま話す
                 prevPosition = '';
                 socket.emit('tapEnd',{
-                    id: this_roomID,
+                    id: thisRoomID,
                     parentObjectName: parentObjectName,
                     speed: speed
                 });
@@ -106,18 +106,18 @@ class RayCastClosure{
                     const target = intersects[0];
                     if (thisDevice === 'PC'){
                         socket.emit('checkData',{
-                            id: this_roomID,
+                            id: thisRoomID,
                             name: target.object.name,
                             birdName: target.object.birdName,
                             pos: target.object.position
                         });
                         socket.emit('selectBird',{
-                            id: this_roomID,
+                            id: thisRoomID,
                             birdName: target.object.birdName
                         });
                     } else if (thisDevice === 'SM'){
                         socket.emit('selectBird',{
-                            id: this_roomID,
+                            id: thisRoomID,
                             birdName: target.object.birdName
                         });
                     }

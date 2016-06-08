@@ -50,6 +50,7 @@
 	//名前空間（jadeファイル上にある）
 	var MainPageNameSpace = __webpack_require__(14);
 
+	//processで順に実行する関数モジュール
 	var socketJoin = __webpack_require__(15);
 	var preloadData = __webpack_require__(16);
 	var init = __webpack_require__(17);
@@ -1203,17 +1204,17 @@
 	    return new Promise(function (resolve) {
 	        var socket = NameSpace.preset.socket;
 	        var thisDevice = NameSpace.preset.thisDevice;
-	        var this_roomID = NameSpace.preset.this_roomID;
+	        var thisRoomID = NameSpace.preset.thisRoomID;
 
 	        //PC最初にPCをログインさせて、次にスマホを同じ部屋にログインさせる
 	        if (thisDevice === 'PC') {
-	            console.log('this ID is ' + this_roomID);
+	            console.log('this ID is ' + thisRoomID);
 	            socket.emit('PC_login', {
-	                id: this_roomID
+	                id: thisRoomID
 	            });
 	        } else if (thisDevice === 'SM') {
 	            socket.emit('SM_login', {
-	                id: this_roomID
+	                id: thisRoomID
 	            });
 	        }
 
@@ -1328,7 +1329,7 @@
 	module.exports = function (NameSpace) {
 	    return new Promise(function (resolve) {
 	        var socket = NameSpace.preset.socket;
-	        var this_roomID = NameSpace.preset.this_roomID;
+	        var thisRoomID = NameSpace.preset.thisRoomID;
 	        var thisDevice = NameSpace.preset.thisDevice;
 
 	        var loader = NameSpace.preload.loader;
@@ -1533,7 +1534,7 @@
 	    _classCallCheck(this, RayCastClosure);
 
 	    var socket = NameSpace.preset.socket;
-	    var this_roomID = NameSpace.preset.this_roomID;
+	    var thisRoomID = NameSpace.preset.thisRoomID;
 	    var thisDevice = NameSpace.preset.thisDevice;
 
 	    //initから
@@ -1582,7 +1583,7 @@
 	            parentObjectName = target.object.parent.name;
 	            prevPosition = { x: mouse.x, y: mouse.y };
 	            socket.emit('tapStart', {
-	                id: this_roomID,
+	                id: thisRoomID,
 	                parentObjectName: parentObjectName
 	            });
 	        }
@@ -1599,7 +1600,7 @@
 	        mouse.x = e.originalEvent.pageX / canWidth * 2 - 1;
 	        speed = (prevPosition.x - mouse.x) * 0.01;
 	        socket.emit('tapMove', {
-	            id: this_roomID,
+	            id: thisRoomID,
 	            parentObjectName: parentObjectName,
 	            speed: speed
 	        });
@@ -1611,7 +1612,7 @@
 	            //止めてそのまま話す
 	            prevPosition = '';
 	            socket.emit('tapEnd', {
-	                id: this_roomID,
+	                id: thisRoomID,
 	                parentObjectName: parentObjectName,
 	                speed: speed
 	            });
@@ -1632,18 +1633,18 @@
 	                var target = intersects[0];
 	                if (thisDevice === 'PC') {
 	                    socket.emit('checkData', {
-	                        id: this_roomID,
+	                        id: thisRoomID,
 	                        name: target.object.name,
 	                        birdName: target.object.birdName,
 	                        pos: target.object.position
 	                    });
 	                    socket.emit('selectBird', {
-	                        id: this_roomID,
+	                        id: thisRoomID,
 	                        birdName: target.object.birdName
 	                    });
 	                } else if (thisDevice === 'SM') {
 	                    socket.emit('selectBird', {
-	                        id: this_roomID,
+	                        id: thisRoomID,
 	                        birdName: target.object.birdName
 	                    });
 	                }
@@ -1876,7 +1877,7 @@
 	module.exports = function (NameSpace) {
 	    var thisDevice = NameSpace.preset.thisDevice;
 	    var socket = NameSpace.preset.socket;
-	    var this_roomID = NameSpace.preset.this_roomID;
+	    var thisRoomID = NameSpace.preset.thisRoomID;
 
 	    var loader = NameSpace.preload.loader;
 	    var birdData = loader.getResult('birdDataJSON');
@@ -1915,7 +1916,7 @@
 	    //アニメーション開始ボタン
 	    $('#start').on('touchend', function () {
 	        socket.emit('startDisplay', {
-	            id: this_roomID
+	            id: thisRoomID
 	        });
 	        if (thisDevice === 'SM') {
 	            $('#navWrap').addClass('js-disappear');
@@ -1961,7 +1962,7 @@
 	        //季節を変更するボタン
 	        $('.seasonBtn').on('click', function (e) {
 	            socket.emit('changeSeason', {
-	                id: this_roomID,
+	                id: thisRoomID,
 	                season: e.target.value
 	            });
 	        });
@@ -1973,7 +1974,7 @@
 	    } else if (thisDevice === 'SM') {
 	        $('#check').on('click', function () {
 	            socket.emit('startDisplay', {
-	                id: this_roomID
+	                id: thisRoomID
 	            });
 	        });
 	    }
@@ -2071,15 +2072,15 @@
 	                                        $birdNavSoundIcon.removeClass('js-turnPink');
 	                                    }, 7500);
 	                                } else {
-	                                    console.log('no');
+	                                    //console.log('no');
 	                                }
 	                            } else {
-	                                //こちらは押せばオフにするの一択
-	                                clearTimeout(tid);
-	                                isPlaying = false;
-	                                $birdNavSoundIcon.removeClass('js-turnPink');
-	                                SJB.stopSpecificBirdSound();
-	                            }
+	                                    //こちらは押せばオフにするの一択
+	                                    clearTimeout(tid);
+	                                    isPlaying = false;
+	                                    $birdNavSoundIcon.removeClass('js-turnPink');
+	                                    SJB.stopSpecificBirdSound();
+	                                }
 	                        },
 	                        'mouseenter': function mouseenter() {
 	                            $birdNavSoundIcon.addClass('js-enlarge');
