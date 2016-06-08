@@ -3,8 +3,9 @@
 const io = require('socket');
 const $ = require('jquery');
 
-//名前空間
+//名前空間(グローバル変数を格納）
 const MainPageNameSpace = {
+	//jadeファイルから読み込む
     preset: {
         //socket
         socket: io.connect(),
@@ -13,21 +14,11 @@ const MainPageNameSpace = {
         //デバイス判定(PCかスマホ（SM）かを判定する)
         thisDevice: $('#thisDevice').val()
     },
+	//preloadData.es6ファイルで格納
     preload: {
-        //鳥の日本語名や季節など
-        birdData: '',
-        //emptyの画像
-        emptyImg: [],
-        //表示する鳥のスプライト画像
-        spriteImage: '',
-        //planeを配置する初期位置を格納
-        planePositions: '',
-        //鳥のスプライト画像の位置座標
-        spriteJSON: '',
+		//preloadした画像やJSONファイルなどを格納
         loader: ''
     },
-    //EnvMap
-    envSpriteImg: [],
     //init処理で積む
     init: {
         scene: '',
