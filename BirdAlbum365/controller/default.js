@@ -38,8 +38,8 @@ router.get('/mainPageForPC', (req, res)=>{
 				id += letters[Math.floor(Math.random()*letters.length)];    //アルファベットを適当に配列
 			}
 			id += Math.ceil(Math.random()*1024);            //1から1024までの数字を適当に追加
-			//return id;
-	        return 1;
+			return id;
+	        //return 1;
 		})();
 		res.render('mainPageForPC', {roomID : roomID});
 	}
