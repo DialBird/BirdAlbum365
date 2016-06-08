@@ -37,7 +37,7 @@ module.exports = ()=>{
             console.log('startDisplay');
             //最初の季節は春
             const season = 'spring';
-            const birdNames = giveBirdNames(season);
+            const birdNames = getBirdNames(season);
             io.sockets.in(data.id).emit('startDisplay',{
                 birdNames: birdNames
             });
@@ -61,7 +61,7 @@ module.exports = ()=>{
         //PCで季節を変えた時のイベント
         socket.on('changeSeason', (data)=>{
             const season = data.season;
-            const birdNames = giveBirdNames(season);
+            const birdNames = getBirdNames(season);
             io.sockets.in(data.id).emit('changeSeason',{
                 season: season,
                 birdNames: birdNames
@@ -86,7 +86,7 @@ module.exports = ()=>{
         //スマホをshakeしたら鳥をシャッフル
         socket.on('shake', (data)=>{
             const season = data.season;
-            const birdNames = giveBirdNames(season);
+            const birdNames = getBirdNames(season);
             io.sockets.in(data.id).emit('shake',{
                 birdNames:birdNames
             });
@@ -96,7 +96,7 @@ module.exports = ()=>{
     //------------------------------------------------------
     //ランダムに鳥のデータを選んで格納する
     //------------------------------------------------------
-    function giveBirdNames(_season){
+    function getBirdNames(_season){
         const array = [];
         const planeNum = entity.planeNum;
         const summer = entity.birdNames.summer;

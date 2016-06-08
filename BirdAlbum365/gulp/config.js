@@ -20,6 +20,7 @@ module.exports = {
             filename: '[name].js'
         },
         externals: {
+            "debugMode": "debugMode",
             "jquery": "$",
             "THREE": "THREE",
             "createjs": "createjs",

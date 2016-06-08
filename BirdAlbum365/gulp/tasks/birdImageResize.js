@@ -17,7 +17,6 @@ gulp.task('birdImageResize', ()=>{
 
 
 function imageResizeFunc(_folderName){
-//    gulp.src(path.join(birdImg_src,'birdsOrigin',_folderName,'*.jpg'))
     gulp.src(config.img + '/' + _folderName + '/*.jpg')
         .pipe(imageResize({
         width: 450,
@@ -29,5 +28,4 @@ function imageResizeFunc(_folderName){
     }))
         .pipe(imagemin())
         .pipe(gulp.dest(config.img.bldDir + '/birdsResized/' + _folderName));
-//        .pipe(gulp.dest(path.join(birdImg_dist,'birdsResized',_folderName)));
 };

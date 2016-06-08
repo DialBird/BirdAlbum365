@@ -3,7 +3,7 @@ html(lang="ja")
     head
         meta(charset="UTF-8")
         meta(name="viewport",content="width=device-width,initial-scale=1")
-        title birdAlbum365
+        title birdAlbum365test
         link(rel="stylesheet",href="./build/css/mainPageForPC.css",type="text/css")
         script(src="//code.jquery.com/jquery-1.12.0.min.js")
         script(src="https://cdn.socket.io/socket.io-1.4.5.js")
@@ -61,6 +61,7 @@ html(lang="ja")
         input#roomID(type="hidden",value="#{roomID}")
         
         script.
+            var debugMode = false;
             var socket = io.connect();
             var MainPageNameSpace = {
                 preset: {
@@ -104,6 +105,10 @@ html(lang="ja")
             };
             
             //スマホに向けてQRコードを作成
-            $('#QRCode').qrcode(`http://153.120.167.116:3000/mainPageForSM?id=#{roomID}`);
+            if (debugMode) {
+                $('#QRCode').qrcode(`http://172.17.11.105:3000/mainPageForSM?id=#{roomID}`);
+            } else {
+                $('#QRCode').qrcode(`http://153.120.167.116:3000/mainPageForSM?id=#{roomID}`);
+            }
         script(src="./build/js/mainPage.js")
         
