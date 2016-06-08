@@ -1346,7 +1346,10 @@
 	        //ループ用変数
 	        var i = void 0;
 
+	        //------------------------------------------------------
 	        //statsを設定
+	        //------------------------------------------------------
+
 	        var stats = new Stats();
 	        stats.setMode(0);
 	        stats.domElement.style.position = "fixed";
@@ -1360,14 +1363,17 @@
 	        //------------------------------------------------------
 	        //threeJSの基盤となる要素
 	        //------------------------------------------------------
+
 	        //canvasのDOM,大きさを設定
 	        var canWidth = window.innerWidth;
 	        var canHeight = window.innerHeight;
+
 	        //レンダラー（canvasの独立性を鑑みた結果、再度canvasをDOMから呼び出した方が見やすくなると判断）
 	        var renderer = new THREE.WebGLRenderer();
 	        renderer.setSize(canWidth, canHeight);
 	        renderer.setClearColor('#ffffff', 1);
 	        $canvas.append(renderer.domElement);
+
 	        //カメラ
 	        var camera = new THREE.PerspectiveCamera(45, canWidth / canHeight, 1, 4000);
 	        if (thisDevice === 'PC') {
@@ -1379,9 +1385,11 @@
 	            camera.lookAt(new THREE.Vector3(1, 0, 0));
 	            NameSpace.init.camera = camera;
 	        }
+
 	        //シーン
 	        var scene = new THREE.Scene();
 	        NameSpace.init.scene = scene;
+
 	        //コントローラ
 	        var control = "";
 	        if (thisDevice === 'PC') {
@@ -1391,6 +1399,7 @@
 	        } else if (thisDevice === 'SM') {
 	                control = new THREE.DeviceOrientationControls(camera);
 	            }
+
 	        //ライト
 	        var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 	        directionalLight.position.set(0, 100, 0);

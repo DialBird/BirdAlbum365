@@ -12,6 +12,8 @@ const RayCastClosure = require('./RayCastClosure');
 const OmniSphere = require('./OmniSphere');
 const AnimationClosure = require('./AnimationClosure');
 
+
+
 module.exports = (NameSpace)=>{
     return new Promise((resolve)=>{
         const socket = NameSpace.preset.socket;
@@ -32,7 +34,12 @@ module.exports = (NameSpace)=>{
         //ループ用変数
         let i;
 
+
+
+		//------------------------------------------------------
         //statsを設定
+		//------------------------------------------------------
+
         const stats = new Stats();
         stats.setMode(0);
         stats.domElement.style.position = "fixed";
@@ -43,17 +50,22 @@ module.exports = (NameSpace)=>{
             document.body.appendChild(stats.domElement);
         }
 
+
+
         //------------------------------------------------------
         //threeJSの基盤となる要素
         //------------------------------------------------------
+
         //canvasのDOM,大きさを設定
         const canWidth = window.innerWidth;
         const canHeight = window.innerHeight;
+
         //レンダラー（canvasの独立性を鑑みた結果、再度canvasをDOMから呼び出した方が見やすくなると判断）
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(canWidth,canHeight);
         renderer.setClearColor('#ffffff',1);
         $canvas.append(renderer.domElement);
+
         //カメラ
         const camera = new THREE.PerspectiveCamera(45,canWidth/canHeight,1,4000);
         if (thisDevice === 'PC'){
@@ -65,9 +77,11 @@ module.exports = (NameSpace)=>{
             camera.lookAt(new THREE.Vector3(1,0,0));
             NameSpace.init.camera = camera;
         }
+
         //シーン
         const scene = new THREE.Scene();
         NameSpace.init.scene = scene;
+
         //コントローラ
         let control = "";
         if (thisDevice === 'PC'){
@@ -77,12 +91,14 @@ module.exports = (NameSpace)=>{
         } else if (thisDevice === 'SM'){
             control = new THREE.DeviceOrientationControls(camera);
         }
+
         //ライト
         const directionalLight = new THREE.DirectionalLight(0xffffff,1);
         directionalLight.position.set(0,100,0);
         scene.add(directionalLight);
         const amb = new THREE.AmbientLight(0xa5a5a5,1);
         scene.add(amb);
+
 
 
         //------------------------------------------------------
@@ -93,6 +109,7 @@ module.exports = (NameSpace)=>{
             camera.updateProjectionMatrix();
             renderer.setSize( window.innerWidth, window.innerHeight );
         });
+
 
 
         //------------------------------------------------------
