@@ -1475,21 +1475,27 @@
 	            }
 	        })();
 
+	        //------------------------------------------------------
+	        //Envマップを作成する
+	        //------------------------------------------------------
 	        var omniSphere = new OmniSphere(NameSpace);
 	        omniSphere.createOmniSphere();
 	        omniSphere.changeMode('spring');
+
 	        NameSpace.init.omniSphere = omniSphere;
 
 	        //------------------------------------------------------
 	        //canvasのクリックイベント（RayCast）を支配するクロージャ
 	        //------------------------------------------------------
 	        var RCC = new RayCastClosure(NameSpace, $canvas, canWidth, canHeight);
+
 	        NameSpace.init.RCC = RCC;
 
 	        //------------------------------------------------------
 	        //アニメーションを支配するクロージャ
 	        //------------------------------------------------------
 	        var AC = new AnimationClosure(NameSpace, cylinderParents);
+
 	        NameSpace.init.AC = AC;
 
 	        //------------------------------------------------------

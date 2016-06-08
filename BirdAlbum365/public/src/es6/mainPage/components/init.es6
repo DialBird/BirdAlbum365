@@ -128,6 +128,7 @@ module.exports = (NameSpace)=>{
         
         NameSpace.init.planes = planes;
 
+
         //Planeの親オブジェクト作成(nameは特定の段のみを回転させる時に、オブジェクトを特定するために使う)
         const cylinderParents = (()=>{
             const array = [];
@@ -163,15 +164,21 @@ module.exports = (NameSpace)=>{
             }
         })();
         
+		//------------------------------------------------------
+		//Envマップを作成する
+		//------------------------------------------------------
         const omniSphere = new OmniSphere(NameSpace);
         omniSphere.createOmniSphere();
         omniSphere.changeMode('spring');
+
         NameSpace.init.omniSphere = omniSphere;
         
+
         //------------------------------------------------------
         //canvasのクリックイベント（RayCast）を支配するクロージャ
         //------------------------------------------------------
         const RCC = new RayCastClosure(NameSpace,$canvas,canWidth,canHeight);
+
         NameSpace.init.RCC = RCC;
 
         
@@ -179,8 +186,10 @@ module.exports = (NameSpace)=>{
         //アニメーションを支配するクロージャ
         //------------------------------------------------------
         const AC = new AnimationClosure(NameSpace, cylinderParents);
+
         NameSpace.init.AC = AC;
         
+
         //------------------------------------------------------
         //アニメーション開始
         //------------------------------------------------------
